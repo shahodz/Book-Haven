@@ -1,0 +1,261 @@
+*{
+    box-sizing: border-box;
+}
+/* Style for the header/navbar */
+
+.nav_bar {
+    background-color: #f8f4ef;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+}
+#logo{
+    width:90px; /* Adjust as needed */
+    padding: 0px;
+    margin: 0px; /* Adjust as needed */
+    position: relative;
+    padding-bottom: 1px;
+
+}
+
+/* Style for the navbar title */
+#navbar_logo {
+    margin-right: 0; /* Remove default margin */
+    font-size: 26px; /* Adjust as needed */
+    text-decoration: none;
+    color: #31220f;
+    /*margin: 0; /* Remove default margin */
+    /*color: black; /* Black color */
+}
+#libraryName{
+    color: #31220f;
+    padding: 5px;
+    font-weight: 550;
+    font-size: 28px;
+    position: relative;
+}
+
+/* Style for the navigation links */
+.nav_menu {
+    margin-left: auto; /* Align to the right */
+}
+.nav_bar a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav_links {
+    color: black; /* Black color */
+    text-decoration: none; /* Remove underline */
+    margin-right: 15px; /* Adjust as needed */
+    transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
+    padding: 8px 15px; /* Add padding to create a box-like appearance */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold; /* Adjust as needed */
+}
+
+.nav_links:hover {
+    background-color: rgb(29, 97, 84); /* Change background color on hover */
+    opacity: 0.8; /* Reduce opacity of other items on hover */
+    color:#f8f4ef; /* Change text color on hover */
+}
+
+body{
+    background-color: #f8f4ef;
+    height: 1000px;
+}
+.main {
+    background-color: #956c4f; 
+    padding: 20px; /* Add padding to create space around the content */
+    border-radius: 15px; /* Add rounded corners */
+    margin: 20px; /* Add margin to separate the section from other elements */
+    text-align: center; /* Center-align the text */
+    font-family: Arial, sans-serif; /* Use a standard font */
+    color: #eee; /* Use a dark color for text */
+}
+
+h2{
+    text-align: center;
+    padding: 10px;
+    margin: 10px auto;
+    font-size: 35px;
+    color: #eee;
+}
+
+.main div{
+    color: #eee;
+    font-size: 23px;
+    font-family: Arial, sans-serif; 
+    text-align: center;
+}
+
+.books-container {
+    display: flex; /* Use flexbox for the container */
+    justify-content: space-around; /* Distribute items evenly with space around them */
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.book {
+    flex: 0 0 30%; /*Each book takes up 30% of the container's width */
+    padding: 10px;
+    text-align: center; 
+}
+.details{
+    list-style: none;
+}
+.images:hover{
+    border: 5px solid #956c4f;
+}
+
+h3{
+    font-size: 20px;
+}
+.details{
+    display: none;
+    text-align: center;
+    font-family: Arial, sans-serif; /* Change font family */
+    margin: 10px;
+    letter-spacing: 0.5px;
+}
+.buttons{
+    margin: 10px;
+    /* background-color: #257e50; Blue color */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(29,97,84);
+    font-weight: bold;
+}
+.buttons:hover{
+    background-color: rgb(29,97,84);
+}
+
+/* Style for the footer */
+.footer {
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: -webkit-fill-available;
+    height: 260px;
+}
+
+/* Style for footer columns */
+.footer_column {
+    text-decoration: none;
+    color: transparent;
+    margin-left: 100px;
+
+}
+ul.special-list {
+    margin-left:25px;
+    position: relative;
+    top: -38px;
+    font-family: arial;
+
+}
+
+.special-list li a{
+    text-decoration: none;
+    color: #ccc;
+
+}
+.special-list li a:hover{
+    color: #2980b9;
+}
+
+
+/* Style for footer headings */
+.footer h3 {
+    color: #ccc;
+    left: 30px;
+    position: relative;
+    top: -22px;
+    font-family: arial;
+}
+
+.footer h2{
+    color: #ccc;
+    position: relative;
+    font-size: 22px;
+    right: 90px;
+    top: -22px;
+    font-family: arial;
+}
+
+/* Style for footer navigation */
+.footer nav {
+    margin-top: 10px;
+}
+
+/* Style for social icons */
+.social_icons {
+    margin-top: 10px; 
+    display: flex;
+    position: relative;
+    top: -35px;
+}
+
+.social_icons a {
+    margin-right: 10px;
+}
+
+.social_icons img {
+    width: 30px; 
+}
+
+.social {
+    top:45%;
+    left:58%;
+    transform: translate(-50%, -50%);
+    margin:0;
+    padding:0;
+    display:flex;
+}
+
+.social li {
+    list-style: none;
+}
+
+.social li a {
+    width:30px;
+    height:30px;
+    display:block;
+    text-align:center;
+    margin:0 7px;
+    box-sizing: border-box;
+    transition: .5s;
+    
+}
+
+.social li a .fab {
+    line-height: calc(60px - 12px);
+    font-size: 25px;
+    color: #ccc;
+
+}
+
+.social li:nth-child(1) a:hover .fab {
+    color: #3b5998;
+}
+
+.social li:nth-child(2) a:hover .fab {
+    color: #00aced;
+}
+
+.social li:nth-child(3) a:hover .fab {
+    color: #dd4b39;
+}
+
+.social li:nth-child(4) a:hover .fab {
+    color: #007bb6;
+}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="icon" href="book_covers/Sticker png.png"/>
+    <link rel="stylesheet" href="CSS/Profile.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+</head>
+<body>
+    <div>
+        <header class="nav_bar">
+            <a href="user_dashboard.html"   id="navbar_logo"> <img src="book_covers/Sticker png.png" id="logo" ></a>
+            <a href="user_dashboard.html" id="libraryName"><span id="libraryName"> Book Haven</span></a>
+            <nav class="nav_menu">
+                <a href="user_dashboard.html"class="nav_links">Home</a> 
+                <a href="user_Books.html"class="nav_links">Books</a>
+                <a href="borrowed_books.html"class="nav_links">Your books</a> 
+                <a href="user_dashboard.html#contactUs"class="nav_links">Contact Us</a> 
+                <a href="profile.html"class="nav_links">Profile</a>
+                <a href="Home.html" class="nav_links">Logout</a>
+                <a href="user_result.html"class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+            </nav>
+        </header>
+    </div>
+
+    
+    <div class="main">
+        <h1>Your Profile</h1>
+        <button class="edit-profile">Edit Profile</button> 
+        <h4>Account ID: 114100001</h4>
+        <div class="profile-info">
+            <div class="input-group">
+                <label for="avatar">Avatar:</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+            </div>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <div id="usernameError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <label for="Date-of-birth">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" name="Date-of-birth" placeholder="Select your date of birth" required>
+                <div id="dateOfBirthError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div id="emailError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <label for="contact">Contact No:</label>
+                <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required>
+                <div id="contactError" class="error-message"></div>
+            </div>
+            
+        </div>
+        <div class="profile-actions">
+            
+            <button class="change-password">Change Password</button>
+            <div class="password-fields">
+                <div class="input-group">
+                    <label for="oldPassword">Old Password</label>
+                    <input type="password" id="oldPassword" name="oldPassword" required >
+                </div>
+                <div class="input-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required >
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required >
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+            </div>
+            <button class="save-changes" type="submit">Save Changes</button> 
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer_column">
+            <h3>Book Haven</h3>
+            <ul class="special-list">
+                <li><a href="user_dashboard.html">Home</a> </li>
+                <li><a href="user_Books.html">Books</a> </li>
+                <li><a href="#aboutUs">About Us</a> </li>
+                <li><a href="#contactUs">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Follow Us</h2>
+            <div class="social_icons">
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
+                    <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/Profile.js"></script>
+</body>
+</html>

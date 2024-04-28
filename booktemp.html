@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="CSS/BookDetails.css">
+    <link rel="icon" href="book_covers/Sticker png.png"/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'></head>
+
+<body>
+    <div>
+        <header class="nav_bar">
+            <a href="user_dashboard.html"   id="navbar_logo"> <img src="book_covers/Sticker png.png" id="logo" ><b id="libraryName"> Book Haven</b> </a>
+    
+            <nav class="nav_menu" >
+                <a href="user_Books.html"                       class="nav_links">Books</a>
+                <a href="borrowed_books.html"                   class="nav_links">Your books</a>
+                <a href="user_dashboard.html#contactUs"         class="nav_links">Contact Us</a>
+                <a href="Home.html"                             class="nav_links">Logout</a>
+                <a href="user_result.html"                      class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+        </nav>
+            </header>
+        
+    </div>
+
+    <div class="book_details_container">
+        <div class="book_description">
+            <h2 id="book_name"></h2><br>
+            <h4 id="book_author"></h4>
+            <p id="book_description"></p>
+            <strong>Year:</strong> <span id="book_year"></span> <br>
+            <strong>Publisher:</strong> <span id="book_publisher"></span><br>
+            <strong>ISBN:</strong> <span id="book_isbn"></span><br>
+            <strong>Edition:</strong> <span id="book_edition"></span><br>
+            <strong>Genre:</strong> <span id="book_genre"></span><br>
+            <strong>Language:</strong> <span id="book_language"></span></p>                </div>
+        <div class="book_image">
+            <img id="book_image" src="" alt="Book Cover">
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer_column">
+            <h2>Book Haven</h2>
+            <ul class="special-list">
+                <li><a href="user_dashboard.html">Home</a> </li>
+                <li><a href="user_Books.html">Books</a> </li>
+                <li><a href="#AboutUs">About Us</a> </li>
+                <li><a href="#contactUs">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class=>
+            <h2>Follow Us</h2>
+            <div class="social_icons">
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
+                    <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bookDetailsTemp.js" type="module"></script>
+</body>
+
+</html>

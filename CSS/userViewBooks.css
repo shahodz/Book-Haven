@@ -1,0 +1,90 @@
+:root {
+    --green--btn: rgb(29, 97, 84);
+    --backG--color: #f8f4ef;
+    --font--color: #31220f;
+    --selection--color:#e4c5a1;
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-snap-type: mandatory;
+    scroll-behavior: smooth;    
+}   
+
+body {
+    background-color: #f8f4ef;
+    
+}
+
+/* Removing the scroll bar without impacting scrolling */
+*::-webkit-scrollbar{
+    display: none;
+}
+
+/* Start of navbar style */
+.nav_bar {
+    padding: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.489);
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+#libraryName{
+    color: #31220f;
+    font-weight: 550;
+    font-size: 28px;
+    position: relative;
+    bottom: 6px;
+    text-decoration: none;
+
+}
+#logo {
+    width:90px; /* Adjust as needed */
+    padding: 0px;
+    margin: 0px; /* Adjust as needed */
+    position: relative;
+    top: 6px;
+    padding-bottom: 1px;
+
+}
+
+  /* Style for the navbar title */
+#navbar_logo {
+    margin-right: 0; /* Remove default margin */
+    font-size: 26px; /* Adjust as needed */
+    text-decoration: none;
+    color: #31220f;
+
+}
+
+  /* Style for the navigation links */
+.nav_menu {
+    margin-left: auto; /* Align to the right */
+}
+
+.nav_links {
+    color:#31220f; /* Black color */
+    text-decoration: none; /* Remove underline */
+    margin-right: 15px; /* Adjust as needed */
+    transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
+    padding: 8px 15px; /* Add padding to create a box-like appearance */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold; /* Adjust as needed */
+}
+
+.nav_links:hover {
+    background-color: rgb(29, 97, 84); /* Change background color on hover */
+    opacity: 0.8; /* Reduce opacity of other items on hover */
+    color:#f8f4ef; /* Change text color on hover */
+    
+
+}
+/* ------------------------------------- */
+/* end of navBar style */

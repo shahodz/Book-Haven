@@ -91,6 +91,12 @@
     color: #333;
 }
 
+.profile-role{
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .profile-info {
     margin-bottom: 20px;
 }

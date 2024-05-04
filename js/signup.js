@@ -49,7 +49,9 @@ signupForm.addEventListener('submit', function(event) {
         username: username,
         email: email,
         password: password,
-        role: role
+        role: role,
+        dateOfBirth:'',
+        contact:''
     };
 
     users.push(user);

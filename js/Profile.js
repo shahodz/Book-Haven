@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailError = document.getElementById('emailError');
     const contactError = document.getElementById('contactError');
     const passwordError = document.getElementById('passwordError');
+    const roleElement = document.getElementById('role');
+
 
     // Function to validate all input fields
     const validateInputs = () => {
@@ -176,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (userData) {
             usernameInput.value = userData.username;
             emailInput.value = userData.email;
+            roleElement.textContent = userData.role;
         }
     };
 
@@ -187,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (userData) {
             usernameInput.value = userData.username;
             emailInput.value = userData.email;
+            roleElement.textContent = userData.role;
         }
     };
 

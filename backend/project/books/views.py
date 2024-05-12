@@ -10,4 +10,5 @@ def main_view(request):
 def search_results(request):
     pass
 
-
+def singup(request):
+    return render(request, 'Signup.html')

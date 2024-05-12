@@ -15,7 +15,7 @@ def signup(request):
         
         myuser.save()
         messages.success(request, "Signup successful!")
-        return redirect('signin')
+        return redirect('login.html')
     return render(request, 'Signup.html')
 
 

@@ -1,0 +1,13 @@
+{% load static %}
+{% include 'user_nav_bar.html' %}
+
+<link rel="stylsheet" href="{% static 'css/search.css' %}">
+
+
+{% for book in boo %}
+{% block content %}
+<h1>{{book.name}}</h1>
+{% endblock content %}
+{% endfor %}
+
+{% include 'footer.html' %}

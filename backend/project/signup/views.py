@@ -17,3 +17,10 @@ def signup(request):
         messages.success(request, "Signup successful!")
         return redirect('signin')
     return render(request, 'Signup.html')
+
+
+def login(request):
+    return render(request, 'login.html')
+
+def logout(request):
+    return render(request, 'logout.html')

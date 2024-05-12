@@ -1,0 +1,47 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup-login.css' %}">
+{% include 'guest_nav_bar.html' %}
+
+
+{% block content %}
+    
+    <!-- <link rel="icon" href="book_covers/Sticker png.png"/> -->
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'> -->
+
+
+    <div class="main1">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="login">
+				<form action="\login" method="post">
+                    {% csrf_token%}
+					<label for="chk" aria-hidden="true">Login</label>
+                    <div class="user-option">
+                    <p class="login-as">Login as a: </p>
+                    <div class="radio-container">
+                        <input type="radio" id="user" name="role" value="user">
+                        <span for="user">User</span>
+                      </div>
+                      
+                      <div class="radio-container">
+                        <input type="radio" id="admin" name="role" value="admin">
+                        <span for="admin">Admin</span>
+                      </div>
+                    </div>
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+                    {% csrf_token %}
+					<button type="submit">Login</button>
+				</form>
+			</div>
+	</div>
+    {% endblock content%}
+
+
+    {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/signup.js' %}" defer></script>
+    {% endblock scripts%}
+
+    {% include 'footer.html' %}
+

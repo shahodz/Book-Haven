@@ -1,13 +1,28 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
 {% include 'user_nav_bar.html' %}
 
-<link rel="stylsheet" href="{% static 'css/search.css' %}">
 
-
-{% for book in boo %}
 {% block content %}
-<h1>{{book.name}}</h1>
+
+<div class="search-section" align="center">
+    <div class="search-wrapper">
+        <a class="search-icon" style="font-size: 20px;">
+            <i class="fa fa-search"></i>
+        </a>
+        {% csrf_token %}
+        <input id="bar"  class ="search-bar" type="text" placeholder="Search author, title, category..">
+    </div>
+</div>
+<div id="result" class="search-results">
+            
+</div>
 {% endblock content %}
-{% endfor %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/search.js' %}" defer></script>
+{% endblock scripts%}
+
 
 {% include 'footer.html' %}

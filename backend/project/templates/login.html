@@ -16,19 +16,7 @@
 				<form method="post">
                 {% csrf_token%}
 					<label for="chk" aria-hidden="true">Login</label>
-                    <div class="user-option">
-                    <p class="login-as">Login as a: </p>
-                    <div class="radio-container">
-                        <input type="radio" id="user" name="role" value="user">
-                        <span for="user">User</span>
-                      </div>
-                      
-                      <div class="radio-container">
-                        <input type="radio" id="admin" name="role" value="admin">
-                        <span for="admin">Admin</span>
-                      </div>
-                    </div>
-          <input type="text" name="username" placeholder="User name" required="">
+                <input type="text" name="username" placeholder="User name" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
                     {% csrf_token %}
 					<button type="submit">Login</button>

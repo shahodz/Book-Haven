@@ -1,0 +1,9 @@
+<h1>welcome</h1>
+{% if user.is_authenticated %}
+<h3>hello {{username}}</h3>
+
+{% else %}
+<h2>loser</h2>
+
+{% endif %}
+

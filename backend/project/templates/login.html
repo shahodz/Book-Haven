@@ -13,8 +13,8 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="login">
-				<form action="\login" method="post">
-                    {% csrf_token%}
+				<form method="post">
+                {% csrf_token%}
 					<label for="chk" aria-hidden="true">Login</label>
                     <div class="user-option">
                     <p class="login-as">Login as a: </p>
@@ -28,7 +28,7 @@
                         <span for="admin">Admin</span>
                       </div>
                     </div>
-					<input type="email" name="email" placeholder="Email" required="">
+          <input type="text" name="username" placeholder="User name" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
                     {% csrf_token %}
 					<button type="submit">Login</button>

@@ -4,13 +4,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login, logout
 from .models import CustomUser
 
-        # if pswd != pswdconf:
-        #     messages.error(request, "Passwords do not match")
-        #     return redirect('signup')
+
         
-        # if CustomUser.objects.filter(username=username).exists():
-        #     messages.error(request, "Username already exists")
-        #     return redirect('signup')
+
         
 def signin(request):
     if request.method == "POST":
@@ -19,13 +15,12 @@ def signin(request):
         user = authenticate(username=username, password=password)
         
         if user is not None:
-            # Check if the user is an admin
             if user.is_admin:  # If True, user is an admin
                 login(request, user)
                 return render(request, "index.html", {'username': username})
             else:
                 messages.error(request, "You are not authorized for this role.")
-                return redirect('signup')  # Redirect to signin page or wherever appropriate
+                return redirect('signup')  
         else:
             messages.error(request, "Bad credentials")
             return redirect('signin')
@@ -41,6 +36,12 @@ def signup(request):
         pswd= request.POST['pswd']
         pswdconf= request.POST['pswdconf']
         
+        if pswd != pswdconf:
+            messages.error(request, "Passwords do not match")
+            return redirect('signup')
+        if CustomUser.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists")
+            return redirect('signup')
 
         myuser = CustomUser.objects.create_user(username=username, email=email, password=pswd, is_admin=is_admin)
         
@@ -50,7 +51,7 @@ def signup(request):
     return render(request, "Signup.html")
 
 
-def logout(request):
+def signout(request):
     logout(request)
     messages.success(request, "Logged out successfully!")
     # return redirect ()//to be linked with home

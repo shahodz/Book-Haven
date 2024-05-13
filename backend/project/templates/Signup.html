@@ -7,18 +7,18 @@
     
     <!-- <link rel="icon" href="book_covers/Sticker png.png"/> -->
     <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'> -->
+<head>
 
-
+</head>
+<body>
     <div class="main1">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
-
 			<div class="signup">
 				<form method="post">
         {% csrf_token%}
                     <label for="chk" aria-hidden="true">Sign up</label>
                 <div class="all">
-                    <div class="user-option">
-                      <input type="checkbox" name="is_admin" value="True"> Admin
+                  <div class="user-option">
+                      <input type="checkbox" id="admin" name="is_admin" value="True"> Admin </div>
                     <input type="text" name="username" placeholder="User name" required="">
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
@@ -57,9 +57,8 @@
 
 
     {% block scripts %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/signup.js' %}" defer></script>
     {% endblock scripts%}
 
     {% include 'footer.html' %}
-
+  </body>

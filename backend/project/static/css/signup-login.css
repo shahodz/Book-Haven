@@ -106,9 +106,7 @@ a{
 	margin-bottom: 30px;
 }
 
-#chk{
-	display: none;
-}
+
 .signup{
 	position: relative;
 	width:100%;
@@ -162,28 +160,23 @@ button:hover{
 	height: 100%;
 }
 
-.radio-container {
+div.signup input#admin[type="checkbox"]{
+    margin-left: 18%;
     display: inline-flex;
     align-items: center;
     margin-right: 20px;
     margin-top: -10%;
     margin-bottom: -20%;
-  }
-.user-option{
-    margin-left: 18%;
+    width: 10px !important;
+	height: 10px;
 }
 span{
     margin-left: 5px;
     margin-top: 10px;
 }
-.signup-as{
-    color: white;
-}
 .all{
     margin-top: -10%;
 }
-
-
 /* Style for the footer */
 .footer {
     background-color: rgb(0, 0, 0);

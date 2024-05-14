@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/BookDetails.css' %}">
+{% include 'guest_nav_bar.html' %}
+   
+{% block content %}
+<!-- <link rel="icon" href="book_covers/Sticker png.png"/> -->
+<!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'> -->
+
+
+    <div class="book_details_container">
+        <div class="book_description">
+            <h2 id="book_name">{{book.name}}</h2><br>
+            <h4 id="book_author">{{book.author}}</h4>
+            <p id="book_description">{{book.description}}</p>
+            <strong>Year:</strong> <span id="book_year">{{book.year}}</span> <br>
+            <strong>Publisher:</strong> <span id="book_publisher">{{book.publisher}}</span><br>
+            <strong>ISBN:</strong> <span id="book_isbn">{{book.ISBN}}</span><br>
+            <strong>Edition:</strong> <span id="book_edition">{{book.name}}</span><br>
+            <strong>Genre:</strong> <span id="book_genre">{{book.genre}}</span><br>
+            <strong>Language:</strong> <span id="book_language">{{book.language}}</span></p>  </div>
+        <div class="book_image">
+            <img id="book_image" src="{{book.image}}" alt="{{book.name}}">
+        </div>
+    </div>
+
+{% endblock content%}
+
+{% block scripts %}
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- <script src="{% static 'js/signup.js' %}" defer></script> -->
+{% endblock scripts%}
+
+{% include 'footer.html' %}

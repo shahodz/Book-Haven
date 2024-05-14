@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books.apps.BooksConfig',
     'signup.apps.SignupConfig',
+    'user.apps.UserConfig',
+    'librarian.apps.LibrarianConfig',
 ]
 
 MIDDLEWARE = [

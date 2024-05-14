@@ -1,0 +1,73 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% include 'user_nav_bar.html' %}
+
+{%block content%}
+
+
+<body>
+    <head>
+        <title>User Profile</title>
+    </head>
+    
+    <div class="main">
+        <h1>Your Profile</h1>
+        <button class="edit-profile">Edit Profile</button> 
+        <h4>Account ID: 114100001</h4>
+        <div class="profile-role">
+            <label for="role">Role:</label>
+            <span id="role"></span>
+        </div>
+        <div class="profile-info">
+            <div class="input-group">
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+            </div>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <div id="usernameError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <label for="Date-of-birth">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" name="Date-of-birth" placeholder="Select your date of birth" required>
+                <div id="dateOfBirthError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div id="emailError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <label for="contact">Contact No:</label>
+                <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required>
+                <div id="contactError" class="error-message"></div>
+            </div>
+            
+        </div>
+        <div class="profile-actions">
+            
+            <button class="change-password">Change Password</button>
+            <div class="password-fields">
+                <div class="input-group">
+                    <label for="oldPassword">Old Password</label>
+                    <input type="password" id="oldPassword" name="oldPassword" required >
+                </div>
+                <div class="input-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required >
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required >
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+            </div>
+            <button class="save-changes" type="submit">Save Changes</button> 
+        </div>
+    </div>
+
+    <script src="{% static 'js/profile.js' %}"></script>
+
+    {%endblock content%}
+
+    {% include 'footer.html' %}

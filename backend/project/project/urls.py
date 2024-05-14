@@ -22,6 +22,6 @@ urlpatterns = [
     path('auth/' , include('signup.urls')),
     path('user/',include('user.urls')),
     path('librarian/',include('librarian.urls')),
-    path('/',include('bookdetails.urls')),
+    path('',include('bookdetails.urls')),
 
 ]

@@ -5,8 +5,8 @@ from django.db import models
 class Book(models.Model):
     name = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images')
-    description = models.TextField()
+    image = models.URLField()
+    description = models.CharField(max_length=100000)
     year = models.IntegerField()
     publisher = models.CharField(max_length=100)
     ISBN = models.CharField(max_length=100)
@@ -16,4 +16,4 @@ class Book(models.Model):
     available = models.BooleanField(default=True)
 
 def __str__(self):
-    return str(self.name)
+    return self.name

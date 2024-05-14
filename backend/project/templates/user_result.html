@@ -1,4 +1,9 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
 {% load static %}
+
 <link rel="stylesheet" href="{% static 'css/search.css' %}">
 {% include 'user_nav_bar.html' %}
 
@@ -6,23 +11,65 @@
 {% block content %}
 
 <div class="search-section" align="center">
-    <div class="search-wrapper">
+    <form class="search-wrapper" method="post" id="search_form">
         <a class="search-icon" style="font-size: 20px;">
             <i class="fa fa-search"></i>
         </a>
         {% csrf_token %}
         <input id="bar"  class ="search-bar" type="text" placeholder="Search author, title, category..">
-    </div>
+    </form>
 </div>
-<div id="result" class="search-results">
+<div id="result" class="search-results not-visible">
             
 </div>
 {% endblock content %}
 
-{% block scripts %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{% static 'js/search.js' %}" defer></script>
-{% endblock scripts%}
+<script>
+    const search_form = document.getElementById('search_form');
+    const search_input = document.getElementById('bar');
+    const results = document.getElementById('result');
+    const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+
+    const searchInputData = (book) => {
+
+        $.ajax({
+        type: 'POST',
+        url: '{% url "results" %}', 
+        data: {
+            'csrfmiddlewaretoken': csrf,
+            'book': book
+        },
+        success: function(res) {
+            const data = res.data;
+            if (Array.isArray(data)) {
+                data.forEach(book =>{
+                    results.innerHTML +=
+                    `<div class=book>
+                    <a href=""><img src="${book.image}" width="170" height="240" alt="${book.name}"></a>
+                    <br>
+                    <h2>${book.name} <small><br>by ${book.author}</small></h2>
+                    <br>
+                    <p>${book.description}</p>
+                    <br>
+                    </div>`
+                })
+            }
+        },
+        error: function(response) {
+            console.log(response);
+        }
+});
+
+    }
+    search_input.addEventListener('keyup',e=>{
+        
+        results.innerHTML="";
+
+        searchInputData(e.target.value);
+    });
+</script>
 
 
 {% include 'footer.html' %}
+

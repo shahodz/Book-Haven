@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from books.models import Book
+from django.db.models import Q
 import json
 # Create your views here.
 
@@ -14,11 +15,11 @@ def search_results(request):
         res = None
         search_key = request.POST.get('book')
         matching_books = []
-        matching_books += Book.objects.filter(name__icontains=search_key)
-        if not matching_books:
-            matching_books+=Book.objects.filter(author__icontains=search_key)
-        if not matching_books:
-            matching_books+=Book.objects.filter(genre__icontains=search_key)    
+        matching_books += Book.objects.filter(
+            Q(name__icontains=search_key) |
+            Q(genre__icontains=search_key) |
+            Q(author__icontains=search_key)
+        )  
 
         if len(search_key) > 0 and len(matching_books) > 0:
             results = []
@@ -27,6 +28,7 @@ def search_results(request):
                     'name': book.name,
                     'image': book.image,
                     'author': book.author,
+                    'description': book.description,
                 }
                 results.append(item)
             res = results

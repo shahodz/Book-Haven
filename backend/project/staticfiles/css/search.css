@@ -213,7 +213,7 @@ input {
     background-color: black;
     padding: 20px;
     display: flex;
-    position: relative;
+    position: fixed;
     justify-content: space-around;
     bottom: 0;
     width: -webkit-fill-available;

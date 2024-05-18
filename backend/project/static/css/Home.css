@@ -25,8 +25,8 @@ body {
     display: none;
 }
 .first_page {
-    background-color: #c5b7a5;
-    background: url("../book_covers/LIB5.jpg") no-repeat ;
+    background-color: #e7ac69;
+    background: url("../images/LIB5.jpg") no-repeat ;
     background-size:cover;
     background-position: center;
     height: 100dvh;
@@ -144,7 +144,7 @@ background-color: var(--selection--color);
     background: linear-gradient(
         45deg,
         rgb(64, 185, 163), rgb(39, 122, 107), rgb(35, 120, 104), rgb(27, 108, 93),rgb(26, 112, 96),
-        rgb(30, 93, 81), rgb(35, 115, 100), rgb(46, 119, 106), rgb(41, 109, 96),rgb(32, 105, 91)
+        rgb(38, 114, 100), rgb(35, 115, 100), rgb(46, 119, 106), rgb(41, 109, 96),rgb(32, 105, 91)
     );
     position: absolute;
     top: -2px;
@@ -154,7 +154,7 @@ background-color: var(--selection--color);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     filter: blur(8px);
-    animation: glowing 9s linear ;
+    animation: glowing 40s linear infinite;
     transition: opacity .3s ;
     border-radius: 10px;
     opacity: 0;
@@ -398,7 +398,7 @@ start of fourthpage */
     /* background-color: #f8f4ef; */
 }
 .aboutUsPara{
-    height: 400px;
+    height: 350px;
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -407,12 +407,13 @@ start of fourthpage */
     /* background-position:right; */
     /* background: filter 2px  blur ; */
     /* background-size:contain; */
-    /* padding: 1px; */
+    padding: 1px; 
     font-size: 22px;
     font-weight:normal;
     text-indent: 40px;
     color: #31220f;
-    
+    overflow: hidden;
+    padding-bottom: 30px;
 }
 .aboutimg{
     width: 500px;
@@ -421,16 +422,16 @@ start of fourthpage */
 }
 .contactUs {
     padding-top: 20px;
-    background-image: url("../book_covers/contactUs.jpg") ;
+    background-image: url("../static/images/contactUs.jpg") ;
     background-repeat: no-repeat;
     background-position:center;
     background-size: cover;
     padding: 10px;
-    height: 400px;
+    /* height: 200px; */
     color: #31220f;
     line-height: 1.7;
     font-weight: bold;
-
+    
 }
 #title {
     color: #31220f;
@@ -444,6 +445,7 @@ start of fourthpage */
     font-weight: 550;
     padding-left: 80px;
     display: flex;
+    
 }
 #pp #icon{
     padding: 7px;
@@ -464,7 +466,7 @@ start of fourthpage */
     position: relative;
     justify-content:space-around;
     align-items: center;
-    bottom: 0;
+    bottom: 25;
     width: -webkit-fill-available;
     height: 150px;
 }

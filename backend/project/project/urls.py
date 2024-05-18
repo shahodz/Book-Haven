@@ -26,5 +26,6 @@ urlpatterns = [
     path('librarian/',include('librarian.urls')),
     path('',include('bookdetails.urls')),
     path('borrowing/',include('borrowing.urls')),
-
+    path('',include('Home.urls')),
+    
 ] + static(settings.MEDIA_URL , document_root= settings.MEDIA_ROOT)

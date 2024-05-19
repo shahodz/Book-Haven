@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth import update_session_auth_hash
-
+from signup.models import CustomUser
 # Create your views here.
 
 def admin_dashboard(request):

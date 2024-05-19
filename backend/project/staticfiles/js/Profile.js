@@ -172,32 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call disableEditing function initially to make fields non-editable
     disableEditing();
 
-    // Function to populate input fields with user data from signup
-    const populateSignupUserData = () => {
-        const userData = JSON.parse(localStorage.getItem('users')).pop(); // Get the last user added to local storage (assumed to be the current user)
-        if (userData) {
-            usernameInput.value = userData.username;
-            emailInput.value = userData.email;
-            roleElement.textContent = userData.role;
-        }
-    };
 
-    // Function to populate input fields with user data from login
-    const populateLoginUserData = () => {
-        const email = localStorage.getItem('loggedInUser'); // Get the logged-in user's email from local storage
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const userData = users.find(user => user.email === email);
-        if (userData) {
-            usernameInput.value = userData.username;
-            emailInput.value = userData.email;
-            roleElement.textContent = userData.role;
-        }
-    };
-
-    // Call the appropriate function to populate input fields based on signup or login
-    if (localStorage.getItem('loggedInUser')) {
-        populateLoginUserData();
-    } else {
-        populateSignupUserData();
-    }
 });

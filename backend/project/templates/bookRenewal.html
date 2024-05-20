@@ -35,15 +35,16 @@
                 <p>Yes, Don't let the story end,</p>
                 <p>renew your book!</p>
                 <div class="myform">
-                <form action="renewal success.html" id="bookForm">
+                <form action="{% url 'bookRenewal' book.id %}" id="bookForm" method="post">
+                    {% csrf_token %}
                     <label for="book_name"> Book Title</label> 
-                    <input type="text" id="book_name" name="book name" value="" required placeholder="Enter a Book Title">
+                    <input type="text" id="book_name" name="book name" value="{{book.name}}"  readonly>
                     <br>
                     <label for="author"> Author</label> 
-                    <input type="text" id="author" name="Author" value="" required placeholder="Enter an Author Name">
+                    <input type="text" id="author" name="Author" value="{{book.author}}" readonly>
                     <br>
                     <label for="date"> New Due Date</label> 
-                    <input type="date" id="date" name="book name" required>
+                    <input type="date" id="date" name="due_date" required>
                     <br>
                     <input type="submit" value="Confirm" id="submit">
                 </form>

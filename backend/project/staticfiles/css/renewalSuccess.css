@@ -1,74 +1,56 @@
-:root {
-    --green--btn: rgb(29, 97, 84);
-    --backG--color: #f8f4ef;
-    --font--color: #31220f;
-    --selection--color:#e4c5a1;
-    
-}
-
-* {
-    padding: 0;
-    margin: 0;
+*{
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    scroll-snap-type: mandatory;
-    scroll-behavior: smooth;    
-}   
-
-body {
-    background-color: #f8f4ef;
-    
 }
+/* Style for the header/navbar */
 
-/* Removing the scroll bar without impacting scrolling */
-*::-webkit-scrollbar{
-    display: none;
-}
-
-/* Start of navbar style */
 .nav_bar {
+    background-color: #f8f4ef;
     padding: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.489);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    width: 100%;
 }
-#libraryName{
-    color: #31220f;
-
-    font-weight: 550;
-    font-size: 28px;
-    position: relative;
-    bottom: 6px;
-}
-#logo {
+#logo{
     width:90px; /* Adjust as needed */
     padding: 0px;
     margin: 0px; /* Adjust as needed */
     position: relative;
-    top: 6px;
     padding-bottom: 1px;
 
 }
 
-  /* Style for the navbar title */
+/* Style for the navbar title */
 #navbar_logo {
     margin-right: 0; /* Remove default margin */
     font-size: 26px; /* Adjust as needed */
     text-decoration: none;
     color: #31220f;
-
+    /*margin: 0; /* Remove default margin */
+    /*color: black; /* Black color */
+}
+#libraryName{
+    color: #31220f;
+    padding: 5px;
+    font-weight: 550;
+    font-size: 28px;
+    position: relative;
 }
 
-  /* Style for the navigation links */
+/* Style for the navigation links */
 .nav_menu {
     margin-left: auto; /* Align to the right */
 }
+.nav_bar a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .nav_links {
-    color:#31220f; /* Black color */
+    color: black; /* Black color */
     text-decoration: none; /* Remove underline */
     margin-right: 15px; /* Adjust as needed */
     transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
@@ -82,87 +64,79 @@ body {
     background-color: rgb(29, 97, 84); /* Change background color on hover */
     opacity: 0.8; /* Reduce opacity of other items on hover */
     color:#f8f4ef; /* Change text color on hover */
+}
+body{
+    background-color: #f8f4ef;
+}
+.main {
+    padding: 35px;
+    text-align: center;
+    background-color: #f8f4ef;
+    margin-top: 24px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    font-family: Arial, sans-serif;
+    border: 2px solid #956c4f;
+    height: 322px;
+    width: 520px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+.message{
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
     
-
 }
-/* ------------------------------------- */
-/* end of navBar style */
-a{
-	text-decoration: none;
-	color:#000;
-}
-
-
-.book_details_container {
-    max-width: 800px;
-    margin: 20px auto;
+.main p{
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden; 
-}
-
-.book_description {
-    float: left;
-    width: 60%; 
-}
-
-.book_description h2 {
-    font-size: 28px;
-}
-
-.book_description h4 {
-    font-size: 18px;
-    color: #777; 
-    margin-top: -20px;
-    margin-bottom: 20px;
-}
-
-.book_description p {
-    margin-bottom: 40px;
+    line-height: 2.6;
+    margin-top: 65px;
     font-size: 18px;
 }
 
 
-.book_image {
-    float: left;
-    width: 35%; 
-    margin-bottom: 10px;
+.triangle {
+    position: absolute; 
+    border-top: 116px solid #956c4f;
+    position: absolute;
+    top: -1px;
+    left: 14%;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    
 }
 
-.book_image img {
-    max-width: 100%; /* Ensure image fits container */
-    height: auto;
-    display: block;
-}
-
-
-
-
-.borrow {
-    display: block;
-    margin: 0px auto; /* Center the borrow button */
+.button{
+    color: white;
+    text-decoration: none;
     padding: 10px 20px;
-    background-color: #2b2b2b; /* Dark gray background color */
-    color: #fff; /* White text color */
-    border: none;
-    border-radius: 5px; /* Add border radius for rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition on hover */
+    border-radius: 5px;
+    background-color: rgb(29,97,84);
+    font-weight: bold;
+}
+.button:hover{
+    background-color: rgb(29,97,84);
 }
 
-.borrow:hover {
-    background-color: rgb(29, 97, 84); /* Darker blue color on hover */
-}
 
+/* Style for the footer */
 .footer {
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     padding: 20px;
     display: flex;
-    position: relative;
     justify-content: space-around;
-     bottom: -150px;
+    width: -webkit-fill-available;
+    height: 180px;
+    position: absolute;
+    bottom: -106px;
 }
 
 /* Style for footer columns */
@@ -174,6 +148,10 @@ a{
 }
 ul.special-list {
     margin-left:25px;
+    font-family: arial;
+    position: relative;
+    top: -40px;
+    left: -30px;
 
 }
 
@@ -189,7 +167,10 @@ ul.special-list {
 
 /* Style for footer headings */
 .footer h3 {
-    color: #ccc; /* Dark color */
+    color: #ccc;
+    position: relative;
+    top: -25px;
+    font-family: arial;
 }
 
 .footer h2{
@@ -197,25 +178,29 @@ ul.special-list {
     position: relative;
     font-size: 22px;
     right: 50px;
+    top: -25px;
+    font-family: arial;
 }
 
 /* Style for footer navigation */
 .footer nav {
-    margin-top: 10px; /* Add space above navigation */
+    margin-top: 10px;
 }
 
 /* Style for social icons */
 .social_icons {
-    margin-top: 10px; /* Add space above icons */
+    margin-top: 10px; 
     display: flex;
+    position: relative;
+    top: -35px;
 }
 
 .social_icons a {
-    margin-right: 10px; /* Add space between icons */
+    margin-right: 10px;
 }
 
 .social_icons img {
-    width: 30px; /* Adjust icon size */
+    width: 30px; 
 }
 
 .social {

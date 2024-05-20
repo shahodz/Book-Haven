@@ -22,7 +22,10 @@
             <img id="book_image" src="{{book.image}}" alt="{{book.name}}">
         </div>
     </div>
-    <form><button id="borrowButton" type="borrow">Borrow book</button>
+    <form action="{% url  'borrow_book' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="book_id" value="{{ book.id }}">
+        <button type="submit" class="borrow">Borrow book</button>
     </form>
 
 {% endblock content%}

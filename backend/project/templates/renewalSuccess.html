@@ -29,10 +29,8 @@
     <h2 class="message"><b>Renewal Success</b></h2>
     <div class="main">
         <div class="triangle"></div>
-        <p> Your book has been successfully renewed! thank you for using our library services. 
-        You can view your updated list of borrowed books <a href="borrowed_books.html" id="redirectLink" class="button">Here</a></p>
-        <p id="countdownMessage" style="display: none;" >Redirecting in <span id="countdown">5</span> seconds...</p>
-        
+        <p> Your book {{book.name}} has been successfully renewed! thank you for using our library services. 
+        You can view your updated list of borrowed books <a href="{% url 'borrowedBooks' %}" id="redirectLink" class="button">Here</a></p>
 
     </div>
     

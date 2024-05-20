@@ -38,7 +38,28 @@
     </div>
     <p>
       
-  <div class="books-container" id="books-container"></div>
+  <div id="books-container" class="books-container">
+    {% for book in borrowed_books %}
+    <div class="book">
+      <h3>{{ book.name }}</h3>
+      <img src="{{ book.image }}" alt="{{ book.title }}" width="150" height="220" class="images">
+      <ul class="details">
+        <li><b>Author :</b> {{ book.author }}</li>
+        <li><b>Genre :</b> {{ book.genre }}</li>
+        <li><b>Borrowed Date :</b> {{ book.borrowed_date }}</li>
+        <li><b>Due Date :</b> {{ book.due_date }}</li>
+        <li><a href="{% url 'bookRenewal' book.id %}">
+          <button class="buttons">Renew</button></li>
+        </a>
+        <li><a href="{% url 'return_book' book.id %}">
+          <button class="buttons">Return</button>
+        </a></li>
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  
+
   <footer class="footer">
     <div class="footer_column">
         <h3>Book Haven</h3>

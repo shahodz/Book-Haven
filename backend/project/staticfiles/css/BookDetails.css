@@ -140,7 +140,7 @@ a{
 
 
 
-button[type="borrow"] {
+.borrow {
     display: block;
     margin: 0px auto; /* Center the borrow button */
     padding: 10px 20px;
@@ -152,7 +152,7 @@ button[type="borrow"] {
     transition: background-color 0.3s; /* Smooth transition on hover */
 }
 
-button[type="borrow"]:hover {
+.borrow:hover {
     background-color: rgb(29, 97, 84); /* Darker blue color on hover */
 }
 

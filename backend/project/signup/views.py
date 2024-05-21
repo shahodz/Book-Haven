@@ -4,13 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login, logout
 from .models import CustomUser
 from django.http import JsonResponse
-from django.urls import reverse
 
-
-        
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
 
 def signin(request):
     if request.method == "POST":
@@ -21,15 +15,14 @@ def signin(request):
         if user is not None:
             login(request, user)
             if user.is_admin:
-                return redirect('admin_dashboard')
+                return redirect('admindashboard')  # Redirect to the admin dashboard
             else:
-                return redirect('user_dashboard')
+                return redirect('user_dashboard')  # Redirect to the user dashboard
         else:
             messages.error(request, "Bad credentials")
             return redirect('signin')
     
     return render(request, "login.html")
-
 
 
 def signup(request):

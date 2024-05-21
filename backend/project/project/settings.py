@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'bookdetails.apps.BookdetailsConfig',
     'borrowing.apps.BorrowingConfig',
     'Home.apps.HomeConfig',
+    'add_books',
+    'edit_books',
 ]
 
 MIDDLEWARE = [

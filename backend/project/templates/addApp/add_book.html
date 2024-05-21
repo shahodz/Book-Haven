@@ -1,0 +1,157 @@
+
+{%load static%}
+<link rel="stylesheet" href="{% static 'CSS/add_book.css'%}" />
+
+
+{%block content%}
+<html>
+  <head>
+    <title>Add New Book</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" href="book_covers/Sticker png.png"/>
+    <link rel="stylesheet" href="CSS/add_books.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    /> -->
+    <!-- <link rel="stylesheet" href="CSS/home.css"/> -->
+  </head>
+  <body>
+      <!-- <div>
+        <header class="nav_bar">
+                <a href="admin_dashboard.html"   id="navbar_logo"> <img src="book_covers/Sticker png.png" id="logo" ></a>
+                <a href="admin_dashboard.html" id="libraryName"><span id="libraryName"> Book Haven</span></a>
+                <nav class="nav_menu">
+                <a href="admin_dashboard.html" class="nav_links">Home</a>
+                <a href="adminBooks.html"           class="nav_links">Books</a> 
+                <a href="profile.html"   class="nav_links">Profile</a>
+                <a href="Home.html" class="nav_links">Logout</a>  
+                <a href="admin_result.html"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+            </nav>
+        </header>
+    </div> -->
+    <h2>Add New Book</h2>
+    <div class="container">
+      <form method="POST"  id="form">
+        {% csrf_token %}
+
+        <div class="form_inputs">
+          <label for="bookname">Book Name: </label>
+          <input type="text" name="bookname" class="inputs" id="name" required />
+        </div>
+
+        <div class="form_inputs">
+          <label for="author">Author: </label>
+          <input type="text" name="author" class="inputs" id="author" required />
+        </div>
+
+        <div class="form_inputs">
+          <label for="book_description" name="description">Description: </label>
+          <textarea
+            name="book_description"
+            cols="50"
+            rows="5"
+            id="description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form_inputs">
+          <label for="Publisher">Publisher: </label>
+          <input type="text" name="Publisher" class="inputs" id="Publisher" required />
+        </div>
+
+        <div class="form_inputs">
+          <label for="genre">Genre: </label>
+          <input type="text" name="genre" class="inputs" id="genre" required/>
+        </div>
+
+        <div class="form_inputs">
+          <label for="language">Language: </label>
+          <input type="text" name="language" class="inputs" id="language" required />
+        </div>
+
+        <div class="form_inputs">
+          <label for="edition">Edition: </label>
+          <input type="text" name="edition" class="inputs" id="edition" required />
+        </div>
+
+        <div class="form_inputs">
+          <label for="date">Publication Year: </label>
+          <input type="text" name="date" class="inputs" id="date" required/>
+        </div>
+
+        <div class="form_inputs">
+          <label for="ISBN">ISBN: </label>
+          <input type="text" name="isbn" class="inputs" id="isbn" required />
+        </div>
+
+        <div class="form_inputs">
+          <label for="cover">Book Cover URL: </label>
+          <input type="text" name="cover" class="inputs" id="cover" />
+        </div>
+
+    </div>
+      <div class="buttons">
+        <button type="submit" id="confirmButton">Confirm</button> 
+        <input type="reset" value="Reset" id="resetButton"/> 
+      </div>
+      <br />
+      <br />
+    </form>
+    <footer class="footer">
+        <div class="footer_column">
+            <h3>Book Haven</h3>
+            <ul class="special-list">
+                <li><a href="Home.html">Home</a> </li>
+                <li><a href="admin_books.html">Books</a> </li>
+                <li><a href="#aboutUs">About Us</a> </li>
+                <li><a href="#contactUs">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class=>
+            <h2>Follow Us</h2>
+            <div class="social_icons">
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
+                    <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const resetButton = document.getElementById('resetButton');
+    resetButton.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default reset action
+        if (confirm('Are you sure you want to reset the form?')) {
+            document.getElementById('form').reset(); // Reset the form if confirmed
+        }
+    });
+
+    //  document.getElementById('form').addEventListener('submit', function(event) {
+    //         event.preventDefault(); 
+    //         fetch(this.action, {
+    //             method: this.method,
+    //             body: new FormData(this),
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             if (data.success) {
+    //                 alert('Book added successfully!');
+    //             } else {
+    //                 alert('Failed to add book.');
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error('Error:', error);
+    //             alert('An error occurred while adding the book.');
+    //         });
+    //     });
+    </script>
+  </body>
+</html>
+{%endblock content%}
+

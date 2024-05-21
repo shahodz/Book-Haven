@@ -3,26 +3,33 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login, logout
 from .models import CustomUser
+from django.http import JsonResponse
+from django.urls import reverse
+
 
         
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
 def signin(request):
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['pswd']
-        user = authenticate(username=username, password=password)
+        username = request.POST.get('username')
+        password = request.POST.get('pswd')
+        user = authenticate(request, username=username, password=password)
         
         if user is not None:
-            if user.is_admin:  # If True, user is an admin
-                login(request, user)
-                return render(request, "index.html", {'username': username})
+            login(request, user)
+            if user.is_admin:
+                return redirect('admin_dashboard')
             else:
-                messages.error(request, "You are not authorized for this role.")
-                return redirect('signup')  
+                return redirect('user_dashboard')
         else:
             messages.error(request, "Bad credentials")
             return redirect('signin')
     
     return render(request, "login.html")
+
 
 
 def signup(request):
@@ -37,7 +44,7 @@ def signup(request):
             messages.error(request, "Passwords do not match")
             return redirect('signup')
         if CustomUser.objects.filter(username=username).exists():
-            messages.error(request, "Username already exists")
+            return JsonResponse({"error": "Username already exists"}, status=400)    
             return redirect('signup')
 
         myuser = CustomUser.objects.create_user(username=username, email=email, password=pswd, is_admin=is_admin)

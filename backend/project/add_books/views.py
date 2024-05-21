@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from books.models import Book
 
 # def add(request):
@@ -17,10 +17,6 @@ from books.models import Book
 #     if request.method=='POST':
 #         data.save()
 #     return render (request,'addApp/add_book.html')
-
-
-from django.shortcuts import render, redirect
-from .models import Book
 
 def add(request):
     if request.method == 'POST':

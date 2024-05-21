@@ -1,0 +1,268 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-snap-type: mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Start of navbar style */
+.nav_bar {
+  padding: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.489);
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#libraryName {
+  color: #31220f;
+  text-decoration: none;
+  font-weight: 550;
+  font-size: 28px;
+  position: relative;
+  bottom: -1px;
+  padding: 5px;
+  margin-top: 20px;
+}
+#logo {
+  width: 90px; /* Adjust as needed */
+  padding: 0px;
+  margin: 0px; /* Adjust as needed */
+  position: relative;
+  top: 6px;
+  padding-bottom: 1px;
+}
+
+/* Style for the navbar title */
+#navbar_logo {
+  margin-right: 0; /* Remove default margin */
+  font-size: 26px; /* Adjust as needed */
+  text-decoration: none;
+  color: #31220f;
+}
+
+/* Style for the navigation links */
+.nav_menu {
+  margin-left: auto; /* Align to the right */
+}
+
+.nav_links {
+  color: #31220f; /* Black color */
+  text-decoration: none; /* Remove underline */
+  margin-right: 15px; /* Adjust as needed */
+  transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
+  padding: 8px 15px; /* Add padding to create a box-like appearance */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  font-size: 18px; /* Adjust as needed */
+  font-weight: bold; /* Adjust as needed */
+}
+
+.nav_links:hover {
+  background-color: rgb(29, 97, 84); /* Change background color on hover */
+  opacity: 0.8; /* Reduce opacity of other items on hover */
+  color: #f8f4ef; /* Change text color on hover */
+}
+
+.meh {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+}
+
+body {
+  background-color: #f8f4ef;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+}
+
+.searchbox {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+#searchinput {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 2px solid #04530c;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: white
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat 13px;
+  text-indent: 20px;
+}
+.inputs {
+  border: 2px solid grey;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 10px;
+  width: 50%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: whitesmoke;
+}
+textarea {
+  width: 75%;
+  height: 60px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border: 2px solid grey;
+  border-radius: 4px;
+  resize: none;
+  background: whitesmoke;
+}
+#form {
+  width: 40%;
+  margin: 10vh auto 0 auto;
+  padding: 30px;
+  background-color: #bec7b4;
+  border-radius: 10px;
+  font-size: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0.3);
+}
+.form_inputs {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  color: rgba(0, 0, 0, 0.865);
+  font-weight: bold;
+}
+button,
+input[type="reset"] {
+  background-color: rgb(29, 97, 84);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 25px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  margin-top: 50px;
+}
+/* Style for the footer */
+.footer_column {
+  text-decoration: none;
+  color: transparent;
+  margin-left: 100px;
+  position: relative;
+}
+ul.special-list {
+  margin-left: 25px;
+  position: relative;
+  top: -14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.special-list li a {
+  text-decoration: none;
+  color: #ccc;
+}
+.special-list li a:hover {
+  color: #2980b9;
+}
+
+/* Style for footer headings */
+h3 {
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.followUs {
+  position: relative;
+  top: -15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer h2 {
+  color: #ccc;
+  position: relative;
+  font-size: 22px;
+  right: 50px;
+}
+
+/* Style for footer navigation */
+.footer nav {
+  margin-top: 10px;
+}
+
+/* Style for social icons */
+.social_icons {
+  margin-top: 10px;
+  display: flex;
+  position: relative;
+  top: -20px;
+  margin-left: 40px;
+}
+
+.social_icons a {
+  margin-right: 10px;
+}
+
+.social_icons img {
+  width: 30px;
+}
+
+.social {
+  top: 45%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.social li {
+  list-style: none;
+}
+
+.social li a {
+  width: 30px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  margin: 0 7px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.social li a .fab {
+  line-height: calc(60px - 12px);
+  font-size: 25px;
+  color: #ccc;
+}
+
+.social li:nth-child(1) a:hover .fab {
+  color: #3b5998;
+}
+
+.social li:nth-child(2) a:hover .fab {
+  color: #00aced;
+}
+
+.social li:nth-child(3) a:hover .fab {
+  color: #dd4b39;
+}
+
+.social li:nth-child(4) a:hover .fab {
+  color: #007bb6;
+}

@@ -25,6 +25,7 @@ def search_results(request):
             results = []
             for book in matching_books:
                 item = {
+                    'id':book.id,
                     'name': book.name,
                     'image': book.image,
                     'author': book.author,

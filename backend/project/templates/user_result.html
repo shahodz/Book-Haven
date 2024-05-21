@@ -5,6 +5,7 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'css/search.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 {% include 'nav_bar.html' %}
 
 
@@ -46,7 +47,7 @@
                 data.forEach(book =>{
                     results.innerHTML +=
                     `<div class=book>
-                    <a href=""><img src="${book.image}" width="170" height="240" alt="${book.name}"></a>
+                    <a href="/books/${book.id}/"><img src="${book.image}" width="170" height="240" alt="${book.name}"></a>
                     <br>
                     <h2>${book.name} <small><br>by ${book.author}</small></h2>
                     <br>
@@ -71,5 +72,5 @@
 </script>
 
 
-{% include 'footer.html' %}
+
 

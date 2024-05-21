@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactError = document.getElementById('contactError');
     const passwordError = document.getElementById('passwordError');
 
-    const validateInputs = async () => {
+    const validateInputs = () => {
         let isValid = true;
 
         if (usernameInput.value.length < 3) {
@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             const dob = new Date(dateOfBirthInput.value);
             const now = new Date();
-            const age = Math.floor((now - dob) / (1000 * 60 * 60 * 24 * 365.25));
+            const diff = now - dob;
+            const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 
             if (age < 3) {
                 dateOfBirthError.textContent = 'You must be at least 3 years old';
@@ -54,40 +55,22 @@ document.addEventListener('DOMContentLoaded', function() {
             contactError.textContent = '';
         }
 
-        if (oldPasswordInput.value || newPasswordInput.value || confirmPasswordInput.value) {
-            const response = await fetch('/check_old_password/', {
-                method: 'POST',
-                body: JSON.stringify({ oldPassword: oldPasswordInput.value }),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-                    'Accept': 'application/json'
-                }
-            });
-
-            const data = await response.json();
-
-            if (!data.success) {
-                passwordError.textContent = data.error;
-                isValid = false;
-            } else if (newPasswordInput.value !== confirmPasswordInput.value) {
-                passwordError.textContent = 'Passwords do not match';
-                isValid = false;
-            } else {
-                passwordError.textContent = '';
-            }
+        if (newPasswordInput.value !== confirmPasswordInput.value) {
+            passwordError.textContent = 'Passwords do not match';
+            isValid = false;
+        } else {
+            passwordError.textContent = '';
         }
 
         return isValid;
     };
 
-    const saveChanges = async () => {
-        const isValid = await validateInputs();
-        if (!isValid) {
+    const saveChanges = () => {
+        if (!validateInputs()) {
             console.log("Changes could not be saved. Please fix the validation errors.");
             return;
         }
-
+    
         const formData = new FormData();
         formData.append('username', usernameInput.value);
         formData.append('dateOfBirth', dateOfBirthInput.value);
@@ -96,20 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('oldPassword', oldPasswordInput.value);
         formData.append('newPassword', newPasswordInput.value);
         formData.append('confirmPassword', confirmPasswordInput.value);
-
+    
         const saveProfileUrl = document.querySelector('.save-changes').dataset.saveProfileUrl;
-
-        try {
-            const response = await fetch(saveProfileUrl, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-                    'Accept': 'application/json'
-                }
-            });
-
-            const data = await response.json();
+    
+        fetch(saveProfileUrl, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
             if (data.success) {
                 alert('Profile updated successfully.');
                 disableEditing();
@@ -120,11 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 alert('Failed to update profile.');
             }
-        } catch (error) {
+        })
+        .catch(error => {
             console.error('Error:', error);
             alert('An error occurred.');
-        }
+        });
     };
+    
 
     const enableEditing = () => {
         usernameInput.removeAttribute('readonly');
@@ -177,7 +161,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.save-changes').addEventListener('click', function(event) {
         event.preventDefault();
-        saveChanges();
+
+        if (validateInputs()) {
+            saveChanges();
+        } else {
+            console.log("Changes could not be saved. Please fix the validation errors.");
+        }
     });
 
     disableEditing();

@@ -4,18 +4,21 @@ from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth import update_session_auth_hash
 from signup.models import CustomUser
-# Create your views here.
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import authenticate
+from django.views.decorators.csrf import csrf_exempt
 
+@login_required
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
+@login_required
 def adminprofile(request):
     return render(request, 'adminProfile.html')
 
-
+@login_required
 def save_profile_changes(request):
     if request.method == 'POST':
-        # Retrieve form data
         username = request.POST.get('username')
         date_of_birth = request.POST.get('dateOfBirth')
         email = request.POST.get('email')
@@ -24,61 +27,60 @@ def save_profile_changes(request):
         new_password = request.POST.get('newPassword')
         confirm_password = request.POST.get('confirmPassword')
 
-        # Perform server-side validation if needed
-        
-        # Update user profile information
         user = request.user
         user.username = username
         user.date_of_birth = date_of_birth
         user.email = email
         user.contact = contact
-        user.save()
 
-        # Change password if provided
         if old_password and new_password and confirm_password:
             if user.check_password(old_password):
                 if new_password == confirm_password:
                     user.set_password(new_password)
-                    user.save()
-                    messages.success(request, 'Profile updated successfully.')
+                    update_session_auth_hash(request, user)
+                    messages.success(request, 'Profile and password updated successfully.')
                 else:
                     messages.error(request, 'New passwords do not match.')
+                    return JsonResponse({'success': False, 'error': 'New passwords do not match.'})
             else:
                 messages.error(request, 'Incorrect old password.')
+                return JsonResponse({'success': False, 'error': 'Incorrect old password.'})
         else:
             messages.success(request, 'Profile updated successfully.')
 
-        return JsonResponse({'success': True})  # Return success response
+        user.save()
+        return JsonResponse({'success': True})
     else:
-        return JsonResponse({'success': False})  # Return failure response
-    
+        return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+@login_required
+@csrf_exempt
+def check_old_password(request):
+    if request.method == 'POST':
+        old_password = request.POST.get('oldPassword')
+        user = authenticate(username=request.user.username, password=old_password)
+
+        if user is not None:
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'error': 'Incorrect old password'})
+    else:
+        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
+@login_required
 def change_password(request):
     if request.method == 'POST':
-        # Retrieve form data
-        old_password = request.POST.get('oldPassword')
-        new_password = request.POST.get('newPassword')
-        confirm_password = request.POST.get('confirmPassword')
-
-        # Verify old password matches current password
-        user = request.user
-        if not user.check_password(old_password):
-            return JsonResponse({'success': False, 'error': 'Incorrect old password'})
-
-        # Validate new password
-        # You can implement additional validation here (e.g., length, complexity)
-        if len(new_password) < 8:
-            return JsonResponse({'success': False, 'error': 'New password is too short'})
-
-        # Update password if new password matches confirm password
-        if new_password == confirm_password:
-            user.set_password(new_password)
-            user.save()
-            # Update session authentication hash to prevent logout
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
             update_session_auth_hash(request, user)
             messages.success(request, 'Password changed successfully.')
             return JsonResponse({'success': True})
         else:
-            return JsonResponse({'success': False, 'error': 'New passwords do not match'})
+            if 'old_password' in form.errors:
+                return JsonResponse({'success': False, 'error': form.errors['old_password'][0]})
+            else:
+                return JsonResponse({'success': False, 'error': 'Failed to change password. Please check the input.'})
     else:
-        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+        form = PasswordChangeForm(request.user)
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})

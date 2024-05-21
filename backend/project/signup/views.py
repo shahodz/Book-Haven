@@ -4,9 +4,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login, logout
 from .models import CustomUser
 
-
-        
-
         
 def signin(request):
     if request.method == "POST":

@@ -24,15 +24,18 @@
     </div>
     <form action="{% url  'borrow_book' %}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="book_id" value="{{ book.id }}">
-        <button type="submit" class="borrow">Borrow book</button>
+        {%if user.is_authenticated%}
+            {%if user.is_admin%}
+            {%else%}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="submit" class="borrow">Borrow book</button>
+            {%endif%}
+        {%else%}
+        {%endif%}
     </form>
 
 {% endblock content%}
 
-{% block scripts %}
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-<!-- <script src="{% static 'js/signup.js' %}" defer></script> -->
-{% endblock scripts%}
 
 {% include 'footer.html' %}
+

@@ -1,23 +1,79 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
-<footer class="footer">
-    <div class="footer_column">
-        <h3>Book Haven</h3>
-        <ul class="special-list">
-            <li><a href="user_dashboard.html">Home</a> </li>
-            <li><a href="user_Books.html">Books</a> </li>
-            <li><a href="#aboutUs">About Us</a> </li>
-            <li><a href="#contactUs">Contact Us</a></li>
-        </ul>
-    </div>
-    <div class=>
-        <h2>Follow Us</h2>
-        <div class="social_icons">
-            <ul class="social">
-                <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
-                <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+
+{% load static %}
+{%if user.is_authenticated%}
+    {%if user.is_admin%}
+        <footer class="footer">
+            <div class="footer_column">
+                <h3>Book Haven</h3>
+                <ul class="special-list">
+                    <li><a href="{% url 'admindashboard' %}">Home</a> </li>
+                    <li><a href="user_Books.html">Books</a> </li>
+                    <!-- admin books -->
+                    <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
+                    <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class=>
+                <h2>Follow Us</h2>
+                <div class="social_icons">
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
+                        <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {%else%}
+        <footer class="footer">
+            <div class="footer_column">
+                <h3>Book Haven</h3>
+                <ul class="special-list">
+                    <li><a href="{% url 'userdashboard' %}">Home</a> </li>
+                    <li><a href="user_Books.html">Books</a> </li>
+                    <!-- user books -->
+                    <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
+                    <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class=>
+                <h2>Follow Us</h2>
+                <div class="social_icons">
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
+                        <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {%endif%}
+{%else%}
+    <footer class="footer">
+        <div class="footer_column">
+            <h3>Book Haven</h3>
+            <ul class="special-list">
+                <li><a href="{% url 'home' %}">Home</a> </li>
+                <li><a href="user_Books.html">Books</a> </li>
+                <!-- guest books -->
+                <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
+                <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
             </ul>
         </div>
-    </div>
-</footer>
+        <div class=>
+            <h2>Follow Us</h2>
+            <div class="social_icons">
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/?locale=ar_AR" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/?lang=ar" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://support.google.com/googlecurrents/answer/9217723?hl=ar" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a></li>
+                    <li><a href="https://www.instagram.com/?hl=ar" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+{%endif%}

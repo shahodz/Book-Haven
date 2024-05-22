@@ -48,7 +48,7 @@
             const i = book.id;
 
             const link = document.createElement('a');
-            link.href = 'booktemp.html?book=' + i;
+            link.href = '/books/' + i + '/';
             const cardImage = document.createElement('img');
             cardImage.src = book.image;
             cardImage.className = 'bookImage';

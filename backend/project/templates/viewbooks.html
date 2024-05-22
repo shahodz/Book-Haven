@@ -1,4 +1,8 @@
 {% load static %}
+
+<link rel="stylesheet" href="{% static '../staticfiles/css/viewBooks.css' %}">
+
+
 {% block content %}
 <html lang="en">
 <head>
@@ -7,13 +11,26 @@
     <title>Books</title>
     <meta name="csrf-token" content="{{ csrf_token }}">
 </head>
+<header class="nav_bar">
+    <a href="user_dashboard.html"   id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo" ></a>
+    <a href="user_dashboard.html" id="libraryName"><span id="libraryName"> Book Haven</span></a>
+    <nav class="nav_menu">
+        <a href="user_dashboard.html"class="nav_links">Home</a> 
+        <a href="user_Books.html"class="nav_links">Books</a>
+        <a href="borrowed_books.html"class="nav_links">Your books</a> 
+        <a href="user_dashboard.html#contactUs"class="nav_links">Contact Us</a> 
+        <a href="profile.html"class="nav_links">Profile</a>
+        <a href="Home.html" class="nav_links">Logout</a>
+        <a href="user_result.html"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+    </nav>
+</header>
 <body>
     <div id="book-container"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const books = JSON.parse('{{ books|escapejs }}');
-            const categories = JSON.parse('{{ categories|escapejs }}');
+            const books = {{ books|safe }};
+            const categories ={{ categories|safe }};
             createGrid(books, categories);
             console.log(books);
             console.log(categories);
@@ -68,8 +85,8 @@
             card.style.margin = '15px';
 
             cardImage.style.width = '100%';
-            cardImage.style.objectFit = 'cover';
-            cardImage.style.height = '200px';
+            cardImage.style.objectFit = '100%';
+            cardImage.style.height = '350px';
             cardImage.style.transform = 'scale(1)';
 
             cardContent.style.padding = '8px';
@@ -123,7 +140,6 @@
                 row.className = 'row';
                 const createCategory = document.createElement('div');
                 createCategory.className = 'categorycontainer';
-                createCategory.textContent = categories[i];
                 const categoryTitle = document.createElement('h1');
                 categoryTitle.className = 'categorytitle';
                 categoryTitle.textContent = categories[i];
@@ -147,8 +163,6 @@
                     flex-wrap: wrap;
                     overflow-x: scroll;
                     flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: space-evenly;
                 `;
 
                 grid.appendChild(row);
@@ -168,22 +182,9 @@
             }
         }
 
-        {% comment %} // Function to get CSRF token from cookies
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        } {% endcomment %}
+        
     </script>
 </body>
 </html>
 {% endblock%}
+{% include 'footer.html' %}

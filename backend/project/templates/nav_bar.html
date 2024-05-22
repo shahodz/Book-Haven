@@ -7,7 +7,7 @@
                 <a href="{% url 'admindashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a>
                 <nav class="nav_menu">
                 <a href="{% url 'admindashboard' %}" class="nav_links">Home</a>
-                <a href="adminBooks.html" class="nav_links">Books</a>  
+                <a href="{% url 'view_books' %}" class="nav_links">Books</a>  
                 <!-- books -->
                 <a href="{% url 'adminprofile' %}" class="nav_links">Profile</a>
                 <a href="{% url 'signout' %}" class="nav_links">Logout</a>  

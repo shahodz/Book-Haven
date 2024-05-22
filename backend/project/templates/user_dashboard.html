@@ -14,13 +14,13 @@
     <p class="paragraph">We're thrilled to have you here! Explore the options below to make the most of your experience.</p>
     <div>
         <div class="feature">
-            <a href="user_Books.html" class="feature_button" id="loadViewBooks" title="Browse through our collection of books.">View books</a>
+            <a href="{% url 'view_books' %}" class="feature_button" id="loadViewBooks" title="Browse through our collection of books.">View books</a>
         </div>
         <div class="feature">
-            <a href="user_books.html" class="feature_button" id="loadBorrowBook" title="Borrow a book from our library.">Borrow a book</a>
+            <a href="{% url 'view_books' %}" class="feature_button" id="loadBorrowBook" title="Borrow a book from our library.">Borrow a book</a>
         </div>
         <div class="feature">
-            <a href="borrowed_books.html" class="feature_button" id="loadBorrowedBooks" title="View the books you have borrowed.">Borrowed books</a>
+            <a href="{% url 'borrowedBooks' %}" class="feature_button" id="loadBorrowedBooks" title="View the books you have borrowed.">Borrowed books</a>
         </div>
         
     </div>

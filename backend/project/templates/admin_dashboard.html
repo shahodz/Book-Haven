@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
 {% include 'nav_bar.html' %}
 
-{%block content%}
+{% block content %}
 <head>
     <title>Admin Dashboard</title>
 </head>
@@ -11,21 +11,21 @@
     <h1>Welcome Admin</h1>
     <p class="paragraph">As an admin, you have access to the following features:</p>
     <div class="feature">
-        <a href="add_books.html" class="feature_button">Add Book</a>
+        <a href="{% url 'addbooks' %}" class="feature_button">Add Book</a>
     </div>
     <div class="feature">
-        <a href="adminBooks.html" class="feature_button">View Books</a>
+        <a href="{% url 'view_books' %}" class="feature_button">View Books</a>
     </div>
     <div class="feature">
-        <a href="Edit_books.html" class="feature_button">Edit Book Details</a>
+        <a href="{% url 'main_view' %}" class="feature_button">Edit Book Details</a>
     </div>
     <div class="feature">
-        <a href="Edit_books.html#Delete" class="feature_button">Delete Book</a>
+        <a href="{% url 'main_view' %}" class="feature_button">Delete Book</a>
     </div>
 </div>
 
 <script src="{% static 'js/admin_dashboard.js' %}"></script>
 
-{%endblock content%}
+{% endblock content %}
 
 {% include 'footer.html' %}

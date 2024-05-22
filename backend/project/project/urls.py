@@ -27,8 +27,8 @@ urlpatterns = [
     path('',include('bookdetails.urls')),
     path('borrowing/',include('borrowing.urls')),
     path('',include('Home.urls'),name="home"),
-    path('add',include('add_books.urls')),
-    path('edit',include('edit_books.urls')),
+    path('add/',include('add_books.urls')),
+    path('edit/',include('edit_books.urls')),
     path('books/', include('books.urls')),
     
 ] + static(settings.MEDIA_URL , document_root= settings.MEDIA_ROOT)

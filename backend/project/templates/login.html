@@ -8,7 +8,13 @@
     <!-- <link rel="icon" href="book_covers/Sticker png.png"/> -->
     <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'> -->
 <title>Login</title>
-
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
     <div class="main1">  	
 
 			<div class="login">

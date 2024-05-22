@@ -12,6 +12,14 @@
 </head>
 <title>Sign up</title>
 <body>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  
     <div class="main1">  	
 			<div class="signup">
 				<form method="post">
@@ -27,31 +35,10 @@
                     {% csrf_token %}
 
 					<button type="submit">Sign up</button>
+          <div id="loading-message" style="display: none;">Please wait...</div>
                 </div>
 				</form>
 			</div>
-
-			<!-- <div class="login">
-				<form action="\login" method="post">
-                    {% csrf_token%}
-					<label for="chk" aria-hidden="true">Login</label>
-                    <div class="user-option">
-                    <p class="login-as">Login as a: </p>
-                    <div class="radio-container">
-                        <input type="radio" id="user" name="role" value="user">
-                        <span for="user">User</span>
-                      </div>
-                      
-                      <div class="radio-container">
-                        <input type="radio" id="admin" name="role" value="admin">
-                        <span for="admin">Admin</span>
-                      </div>
-                    </div>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-                    {% csrf_token %}
-					<button>Login</button>
-				</form> -->
 			</div>
 	</div>
     {% endblock content%}
@@ -60,6 +47,20 @@
     {% block scripts %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/signup.js' %}" defer></script>
+    <script>
+              function refreshPage() {
+            window.location.reload();
+        }
+
+        // Check if error message is displayed, then refresh the page after 5 seconds
+        window.onload = function() {
+            var errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                setTimeout(refreshPage, 5000);  // Refresh after 5 seconds
+            }
+        };
+    </script>
+
     {% endblock scripts%}
 
     {% include 'footer.html' %}

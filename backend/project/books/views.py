@@ -47,7 +47,7 @@ def search_results(request):
 
 def view_books(request):
     books = Book.objects.all().values('id', 'name', 'author', 'genre', 'image', 'available')
-    categories = ['Historical', 'Romance', 'Mystery', "Children's Literature", 'Self Help', 'Science Fiction']
+    categories = ['Historical', 'Romance', 'Mystery', "Children's Books", 'Self-help', 'Science Fiction']
     books_json = json.dumps(list(books))
     categories_json = json.dumps(categories)
     return render(request, 'viewbooks.html', {'books': books_json, 'categories': categories_json})

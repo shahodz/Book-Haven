@@ -13,52 +13,39 @@ function validateEmail(email) {
 }
 
 signupForm.addEventListener('submit', function(event) {
-    event.preventDefault(); 
+    let username = usernameInput.value.trim();
+    let email = emailInputSignup.value.trim();
+    let password = passwordInputSignup.value.trim();
+    let confirmPassword = confirmPasswordInput.value.trim();
+    let isAdmin = isAdminCheckbox.checked;
 
-    let username = usernameInput.value;
-    let email = emailInputSignup.value;
-    let password = passwordInputSignup.value;
-
-    if (!username.trim()) {
+    if (!username) {
         alert('Username field cannot be empty!');
+        event.preventDefault();
         return;
     }
 
-    if (!email.trim()) {
+    if (!email) {
         alert('Email field cannot be empty!');
+        event.preventDefault();
         return;
     }
 
     if (!validateEmail(email)) {
         alert('Please enter a valid email address!');
+        event.preventDefault();
         return;
     }
 
     if (password.length < 8) {
         alert('Password must be at least 8 characters long!');
+        event.preventDefault();
         return;
     }
 
-    // Submit the form if all validations pass
-    $.ajax({
-        url: '/auth/signup/',  // the endpoint
-        type: 'POST',  // http method
-        data: $(this).serialize(),  // data sent with the post request
-
-        // handle a successful response
-        success: function(response) {
-            if (response.redirect_url) {
-                window.location.href = response.redirect_url;  // redirect to the dashboard
-            } else {
-                // If there's no redirect_url in the response, submit the form normally
-                signupForm.submit();
-            }
-        },
-
-        // handle a non-successful response
-        error: function(xhr, errmsg, err) {
-            var json = JSON.parse(xhr.responseText);
-            alert(json.error);  // display the error message
-        }
-    });
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        event.preventDefault();
+        return;
+    }
 });

@@ -17,7 +17,7 @@ def signin(request):
             if user.is_admin:
                 return redirect('admindashboard')  # Redirect to the admin dashboard
             else:
-                return redirect('user_dashboard')  # Redirect to the user dashboard
+                return redirect('userdashboard')  # Redirect to the user dashboard
         else:
             messages.error(request, "Bad credentials")
             return redirect('signin')
@@ -35,10 +35,10 @@ def signup(request):
         
         if pswd != pswdconf:
             messages.error(request, "Passwords do not match")
-            return redirect('signup')
         if CustomUser.objects.filter(username=username).exists():
-            return JsonResponse({"error": "Username already exists"}, status=400)    
-            return redirect('signup')
+            messages.error(request, "Username already exists")
+            return redirect('signup')  # Redirect back to the signup page
+
 
         myuser = CustomUser.objects.create_user(username=username, email=email, password=pswd, is_admin=is_admin)
         

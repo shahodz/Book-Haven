@@ -38,6 +38,8 @@ def search_results(request):
         return JsonResponse({'data': res})
     return JsonResponse({})
 
-
-
+def view_books(request):
+    books = Book.objects.all()
+    categories = ["Historical", "Romance", "Mystery", "Children's Literature", "Self Help", "Science Fiction"]
+    return render(request, 'viewbooks.html', {'books': books, 'categories': categories})
 

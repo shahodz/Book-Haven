@@ -1,0 +1,189 @@
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+    <div id="book-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const books = JSON.parse('{{ books|escapejs }}');
+            const categories = JSON.parse('{{ categories|escapejs }}');
+            createGrid(books, categories);
+            console.log(books);
+            console.log(categories);
+
+        });
+
+        function showAlert(message) {
+            alert(message);
+            console.log("here the function called");
+        }
+
+        function createbook(book) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const i = book.id;
+
+            const link = document.createElement('a');
+            link.href = 'booktemp.html?book=' + i;
+            const cardImage = document.createElement('img');
+            cardImage.src = book.image;
+            cardImage.className = 'bookImage';
+
+            link.appendChild(cardImage);
+
+            const cardContent = document.createElement('div');
+            cardContent.className = 'card-content';
+
+            const cardTitle = document.createElement('h2');
+            cardTitle.textContent = book.name;
+            cardTitle.style.color = '#31220f';
+
+            const cardAuthor = document.createElement('h2');
+            cardAuthor.textContent = "by: " + book.author;
+            cardAuthor.style.color = '#31220f';
+
+            cardContent.appendChild(cardTitle);
+            card.appendChild(link);
+            card.appendChild(cardContent);
+            cardContent.appendChild(cardAuthor);
+
+            card.style.cssText = `
+                height: 500px;
+                width: 250px;
+                display: flex;
+                padding: 0px;
+                margin: 0px;
+                box-shadow: 1px 1px 20px;
+                border-radius: 10px;
+                overflow: hidden;
+            `;
+            card.style.display = 'inline';
+            card.style.margin = '15px';
+
+            cardImage.style.width = '100%';
+            cardImage.style.objectFit = 'cover';
+            cardImage.style.height = '200px';
+            cardImage.style.transform = 'scale(1)';
+
+            cardContent.style.padding = '8px';
+            cardContent.style.fontSize = '16px';
+            cardContent.style.paddingLeft = '5px';
+
+            cardAuthor.style.fontSize = '17px';
+            cardAuthor.style.paddingLeft = '20px';
+
+            if (book.name.length > 22)
+                cardContent.style.fontSize = '12px';
+
+            if (book.available) {
+                card.style.borderBottom = '10px solid #7af722';
+
+                const borrow = document.createElement('button');
+                borrow.textContent = 'Borrow';
+                borrow.className = 'borrowBtn';
+                borrow.id = `borrowBtn_${i}`;
+                borrow.style.cssText = `
+                    border: 0;
+                    box-shadow: 1px 10px 10px #31220f95;
+                    border-radius: 10px;
+                    padding: 4px;
+                    background-color: rgb(29, 97, 84);
+                    color: #f8f4ef;
+                    font-weight: 600;
+                    font-size: 17px;
+                    cursor: pointer;
+                    position: relative;
+                    left: 130px;
+                    z-index: 10;
+                    width: 100px;
+                `;
+                
+                card.appendChild(borrow);
+            } else {
+                card.style.borderBottom = '10px solid red';
+            }
+
+            return card;
+        }
+
+        function createGrid(books, categories) {
+            const container = document.getElementById('book-container');
+            
+            for (let i = 0; i < categories.length; i++) {
+                const grid = document.createElement('div');
+                grid.className = 'grid';
+                const row = document.createElement('div'); 
+                row.className = 'row';
+                const createCategory = document.createElement('div');
+                createCategory.className = 'categorycontainer';
+                createCategory.textContent = categories[i];
+                const categoryTitle = document.createElement('h1');
+                categoryTitle.className = 'categorytitle';
+                categoryTitle.textContent = categories[i];
+                categoryTitle.style.backgroundColor = 'rgb(29, 97, 84, 0.9)';
+                categoryTitle.style.padding = '10px';
+                categoryTitle.style.color = '#f8f4ef';
+
+                createCategory.appendChild(categoryTitle);
+                grid.appendChild(createCategory);
+
+                books.forEach(book => {
+                    if (book.genre === categories[i]) {
+                        row.appendChild(createbook(book));
+                    }
+                });
+
+                row.style.cssText = `
+                    width: 100%;
+                    height: 580px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    overflow-x: scroll;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: space-evenly;
+                `;
+
+                grid.appendChild(row);
+                grid.style.cssText = `
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    display: flex;
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                    box-shadow: -10px 15px 10px #31220f91;
+                    padding-top: 10px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                `;
+
+                container.appendChild(grid);
+            }
+        }
+
+        {% comment %} // Function to get CSRF token from cookies
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        } {% endcomment %}
+    </script>
+</body>
+</html>
+{% endblock%}

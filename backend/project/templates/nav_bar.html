@@ -11,8 +11,7 @@
                 <!-- books -->
                 <a href="{% url 'adminprofile' %}" class="nav_links">Profile</a>
                 <a href="{% url 'signout' %}" class="nav_links">Logout</a>  
-                <a href="admin_result.html" class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
-            <!-- admin results /search -->
+                <a href="{% url 'main' %}" class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
             </nav>
         </header>
         </div>
@@ -27,7 +26,7 @@
                 <a href="{% url 'borrowedBooks' %}"class="nav_links">Your books</a> 
                 <a href="{% url 'userprofile' %}"class="nav_links">Profile</a>
                 <a href="{% url 'signout' %}" class="nav_links">Logout</a>
-                <a href="{% url 'results' %}"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+                <a href="{% url 'main' %}"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
             </nav>
         </header>
     {%endif%}
@@ -42,8 +41,7 @@
             <a href="{% url 'home' %}#contactUs"                class="nav_links">Contact Us</a>
             <a href="{% url 'signup' %}"    id="login"  class="nav_links">Sign up</a> 
             <a href="{% url 'signin' %}"    id="login"  class="nav_links">Log in</a> 
-            <a href="home_result.html"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
-        <!-- search -->
+            <a href="{% url 'main' %}"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
         </nav>
     </header>
 

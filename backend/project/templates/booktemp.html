@@ -27,8 +27,10 @@
         {%if user.is_authenticated%}
             {%if user.is_admin%}
             {%else%}
+             {% if book.available %}
                 <input type="hidden" name="book_id" value="{{ book.id }}">
                 <button type="submit" class="borrow">Borrow book</button>
+                {% endif %}
             {%endif%}
         {%else%}
         {%endif%}

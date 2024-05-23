@@ -12,14 +12,17 @@
 </head>
 <title>Sign up</title>
 <body>
-  {% if messages %}
-  <ul class="messages">
-      {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-  </ul>
-  {% endif %}
-  
+    {% if messages %}
+    <ul class="messages" style="text-align: center; color: red; font-weight: bold;">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    
     <div class="main1">  	
 			<div class="signup">
 				<form method="post">

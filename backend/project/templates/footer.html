@@ -8,7 +8,7 @@
                 <h3>Book Haven</h3>
                 <ul class="special-list">
                     <li><a href="{% url 'admindashboard' %}">Home</a> </li>
-                    <li><a href="user_Books.html">Books</a> </li>
+                    <li><a href="user_books.html">Books</a> </li>
                     <!-- admin books -->
                     <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
                     <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
@@ -32,7 +32,7 @@
                 <h3>Book Haven</h3>
                 <ul class="special-list">
                     <li><a href="{% url 'userdashboard' %}">Home</a> </li>
-                    <li><a href="user_Books.html">Books</a> </li>
+                    <li><a href="user_books.html">Books</a> </li>
                     <!-- user books -->
                     <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
                     <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
@@ -57,7 +57,7 @@
             <h3>Book Haven</h3>
             <ul class="special-list">
                 <li><a href="{% url 'home' %}">Home</a> </li>
-                <li><a href="user_Books.html">Books</a> </li>
+                <li><a href="{% url 'home' %}#title">Books</a> </li>
                 <!-- guest books -->
                 <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
                 <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>

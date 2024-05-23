@@ -4,29 +4,29 @@
         <div>
             <header class="nav_bar">
                 <a href="{% url 'admindashboard' %}" id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo"></a>
-                <a href="{% url 'admindashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a>
+                {% comment %} <a href="{% url 'admindashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a> {% endcomment %}
                 <nav class="nav_menu">
-                <a href="{% url 'admindashboard' %}" class="nav_links">Home</a>
-                <a href="{% url 'view_books' %}" class="nav_links">Books</a>  
+                <a href="{% url 'admindashboard' %}"    class="nav_links">Home</a>
+                <a href="{% url 'view_books' %}"        class="nav_links">Books</a>  
                 <!-- books -->
-                <a href="{% url 'adminprofile' %}" class="nav_links">Profile</a>
-                <a href="{% url 'signout' %}" class="nav_links">Logout</a>  
-                <a href="{% url 'main' %}" class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+                <a href="{% url 'adminprofile' %}"      class="nav_links">Profile</a>
+                <a href="{% url 'signout' %}"           class="nav_links">Logout</a>  
+                <a href="{% url 'main' %}"              class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
             </nav>
         </header>
         </div>
     {%else%}
         <header class="nav_bar">
-            <a href="{% url 'userdashboard' %}"   id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo" ></a>
-            <a href="{% url 'userdashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a>
+            <a href="{% url 'userdashboard' %}"         id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo" ></a>
+            {% comment %} <a href="{% url 'userdashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a> {% endcomment %}
             <nav class="nav_menu">
-                <a href="{% url 'userdashboard' %}"class="nav_links">Home</a> 
-                <a href="{% url 'view_books' %}"class="nav_links">Books</a>
+                <a href="{% url 'userdashboard' %}"     class="nav_links">Home</a> 
+                <a href="{% url 'view_books' %}"        class="nav_links">Books</a>
                 <!-- user books -->
-                <a href="{% url 'borrowedBooks' %}"class="nav_links">Your books</a> 
-                <a href="{% url 'userprofile' %}"class="nav_links">Profile</a>
-                <a href="{% url 'signout' %}" class="nav_links">Logout</a>
-                <a href="{% url 'main' %}"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+                <a href="{% url 'borrowedBooks' %}"     class="nav_links">Your books</a> 
+                <a href="{% url 'userprofile' %}"       class="nav_links">Profile</a>
+                <a href="{% url 'signout' %}"           class="nav_links">Logout</a>
+                <a href="{% url 'main' %}"              class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
             </nav>
         </header>
     {%endif%}
@@ -34,14 +34,14 @@
     <header class="nav_bar">
         <a href="{% url 'home' %}"   id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo" ><span id="libraryName"> Book Haven</span> </a>
         <nav class="nav_menu" >
-            <a href="{% url 'home' %}#secondpage"                 class="nav_links">Services</a> 
-            <a href="Home_Books.html"           class="nav_links">Books</a> 
+            <a href="{% url 'home' %}#secondpage"       class="nav_links">Services</a> 
+            <a href="{% url 'home' %}#title"            class="nav_links">Books</a> 
             <!-- view books  -->
-            <a href="{% url 'home' %}#AboutUs"                  class="nav_links">About Us</a> 
-            <a href="{% url 'home' %}#contactUs"                class="nav_links">Contact Us</a>
+            <a href="{% url 'home' %}#AboutUs"          class="nav_links">About Us</a> 
+            <a href="{% url 'home' %}#contactUs"        class="nav_links">Contact Us</a>
             <a href="{% url 'signup' %}"    id="login"  class="nav_links">Sign up</a> 
             <a href="{% url 'signin' %}"    id="login"  class="nav_links">Log in</a> 
-            <a href="{% url 'main' %}"          class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
+            <a href="{% url 'main' %}"                  class="nav_links" style="font-size: 20px;"><i class="fa fa-search"></i></a>
         </nav>
     </header>
 

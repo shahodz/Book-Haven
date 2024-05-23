@@ -83,11 +83,20 @@
       <br />
     </form>
     <script>
+        const confirmButton = document.getElementById('confirmButton');
+
+        confirmButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('form').submit();
+            alert('Book added successfully!');
+        });
+
         const resetButton = document.getElementById('resetButton');
-    resetButton.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent the default reset action
+        
+        resetButton.addEventListener('click', (e) => {
+        e.preventDefault(); 
         if (confirm('Are you sure you want to reset the form?')) {
-            document.getElementById('form').reset(); // Reset the form if confirmed
+            document.getElementById('form').reset(); 
         }
     });
     </script>

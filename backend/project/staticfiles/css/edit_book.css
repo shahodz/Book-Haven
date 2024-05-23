@@ -102,7 +102,7 @@ h2 {
   text-indent: 20px;
 }
 
-#searchResults{
+#searchResults {
   width: 40%;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -110,17 +110,17 @@ h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   background: white;
   text-indent: 20px;
-  margin:auto;
-  position:absolute;
+  margin: auto;
+  position: absolute;
   top: 220px;
-  left:455px;
-  display:none;
+  left: 455px;
+  display: none;
 }
-.search-result{
-  margin:5px;
+.search-result {
+  margin: 5px;
 }
-.search-result:hover{
-  background-color:  #bec7b4;
+.search-result:hover {
+  background-color: #bec7b4;
 }
 .inputs {
   border: 2px solid grey;

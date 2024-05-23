@@ -102,6 +102,25 @@
             if (book.available) {
                 card.style.borderBottom = '10px solid #7af722';
 
+                // Create form for borrowing
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = "{% url 'borrow_book2' %}";
+
+               // Add CSRF token to form data
+               const csrfTokenInput = document.createElement('input');
+               csrfTokenInput.type = 'hidden';
+               csrfTokenInput.name = 'csrfmiddlewaretoken';
+               csrfTokenInput.value = '{{ csrf_token }}'; // Use Django template tag to get CSRF token
+               form.appendChild(csrfTokenInput);
+
+                // Create hidden input for book ID
+                const bookIdInput = document.createElement('input');
+                bookIdInput.type = 'hidden';
+                bookIdInput.name = 'book_id';
+                bookIdInput.value = book.id;
+         
+                // Create borrow button
                 const borrow = document.createElement('button');
                 borrow.textContent = 'Borrow';
                 borrow.className = 'borrowBtn';
@@ -121,8 +140,17 @@
                     z-index: 10;
                     width: 100px;
                 `;
+                // Append book ID input and borrow button to form
+                form.appendChild(bookIdInput);
+                form.appendChild(borrow);
+
+                // Append form to card
+                card.appendChild(form);
                 
-                card.appendChild(borrow);
+                // Submit form when borrow button is clicked
+               borrow.addEventListener('click', function() {
+               form.submit();
+            });
             } else {
                 card.style.borderBottom = '10px solid red';
             }

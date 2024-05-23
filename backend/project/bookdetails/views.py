@@ -21,9 +21,10 @@ def bookdetails(request, book_id):
 @login_required
 def borrow_book(request):
     if request.method == 'POST':
-        book_id = request.POST.get('book_id')
-        book = get_object_or_404(Book, id=book_id)
+        book_id = request.POST.get('book_id') # Get the book_id from the POST data
+        book = get_object_or_404(Book, id=book_id) # Get the Book object with the given book_id
         if book.available:
+            # Update book attributes to reflect that it has been borrowed
             book.borrowed_by = request.user
             book.borrowed_date = datetime.date.today()
             book.due_date = book.borrowed_date + datetime.timedelta(days=14)
@@ -32,4 +33,6 @@ def borrow_book(request):
             messages.success(request, 'Book borrowed successfully')
         else:
             messages.error(request, 'Book not available for borrowing')
-    return redirect('borrowedBooks')
+            
+        # Redirect the user to the borrowedBooks page after borrowing    
+        return redirect('borrowedBooks')

@@ -21,7 +21,7 @@
             <a href="{% url 'userdashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a>
             <nav class="nav_menu">
                 <a href="{% url 'userdashboard' %}"class="nav_links">Home</a> 
-                <a href="user_Books.html"class="nav_links">Books</a>
+                <a href="{% url 'view_books' %}"class="nav_links">Books</a>
                 <!-- user books -->
                 <a href="{% url 'borrowedBooks' %}"class="nav_links">Your books</a> 
                 <a href="{% url 'userprofile' %}"class="nav_links">Profile</a>

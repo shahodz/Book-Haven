@@ -467,7 +467,7 @@ start of fourthpage */
     position: relative;
     justify-content:space-around;
     align-items: center;
-    bottom: 25;
+    bottom: 0;
     width: -webkit-fill-available;
     height: 150px;
 }

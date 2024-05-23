@@ -96,10 +96,82 @@
             cardAuthor.style.fontSize = '17px';
             cardAuthor.style.paddingLeft = '20px';
 
+            {% if user.is_authenticated %}
+                {% if user.is_admin %}
+                    if (book.available) {
+                        card.style.borderBottom = '10px solid #7af722';
+                    } else {
+                        card.style.borderBottom = '10px solid red';
+                    }
+                {% else %}
+                    if (book.available) {
+                        card.style.borderBottom = '10px solid #7af722';
+
+                        // Create form for borrowing
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = "{% url 'borrow_book2' %}";
+
+                        // Add CSRF token to form data
+                        const csrfTokenInput = document.createElement('input');
+                        csrfTokenInput.type = 'hidden';
+                        csrfTokenInput.name = 'csrfmiddlewaretoken';
+                        csrfTokenInput.value = '{{ csrf_token }}'; // Use Django template tag to get CSRF token
+                        form.appendChild(csrfTokenInput);
+
+                        // Create hidden input for book ID
+                        const bookIdInput = document.createElement('input');
+                        bookIdInput.type = 'hidden';
+                        bookIdInput.name = 'book_id';
+                        bookIdInput.value = book.id;
+                
+                        // Create borrow button
+                        const borrow = document.createElement('button');
+                        borrow.textContent = 'Borrow';
+                        borrow.className = 'borrowBtn';
+                        borrow.id = `borrowBtn_${i}`;
+                        borrow.style.cssText = `
+                            border: 0;
+                            box-shadow: 1px 10px 10px #31220f95;
+                            border-radius: 10px;
+                            padding: 4px;
+                            background-color: rgb(29, 97, 84);
+                            color: #f8f4ef;
+                            font-weight: 600;
+                            font-size: 17px;
+                            cursor: pointer;
+                            position: relative;
+                            left: 130px;
+                            z-index: 10;
+                            width: 100px;
+                        `;
+                        // Append book ID input and borrow button to form
+                        form.appendChild(bookIdInput);
+                        form.appendChild(borrow);
+
+                        // Append form to card
+                        card.appendChild(form);
+                        
+                        // Submit form when borrow button is clicked
+                        borrow.addEventListener('click', function() {
+                        form.submit();
+                    });
+                    {% comment %} card.appendChild(borrow); {% endcomment %}
+                } else {
+                    card.style.borderBottom = '10px solid red';
+                }
+            {% endif %}
+        {% else %}
+            // Do nothing for users who are not authenticated
+        {% endif %}
+
+        
             if (book.name.length > 22)
                 cardContent.style.fontSize = '12px';
 
-            if (book.available) {
+///////////////////////////////////////////////////////////////FUNCTION COMENTED////////////////////////////////////////////////////////////////////////////
+
+            {% comment %} if (book.available) {
                 card.style.borderBottom = '10px solid #7af722';
 
                 // Create form for borrowing
@@ -153,8 +225,8 @@
             });
             } else {
                 card.style.borderBottom = '10px solid red';
-            }
-
+            } {% endcomment %}
+/////////////////////////////////////////////////////////////////////////END OF THE COMMINT/////////////////////////////////////////////////////////////////////////
             return card;
         }
 

@@ -35,13 +35,14 @@ body {
 
 /* Start of navbar style */
 .nav_bar {
-    padding: 10px;
+    padding: 0px;
     padding-bottom: 10px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.489);
     display: flex;
     align-items: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    z-index: 2;
 }
 #libraryName{
     color: #31220f;
@@ -66,7 +67,7 @@ body {
     font-size: 26px; /* Adjust as needed */
     text-decoration: none;
     color: #31220f;
-
+    bottom: 3px;
 }
 
   /* Style for the navigation links */
@@ -98,11 +99,9 @@ body {
 .Intro {
     padding-top: 40px;
     justify-content: center;
-    margin: 30px;
     text-align:auto;
     font-size: 30px; 
     padding-left: 50px;
-    margin: 30px;
 }
 ::selection{
     background: #e4c5a1;
@@ -185,7 +184,7 @@ color: var(--backG--color);
 .secondpage,
 .fourthpage {
     height: 100dvh;
-    scroll-snap-align:center ;
+    scroll-snap-align:left ;
 }
 .secondpage{
     display: relative;
@@ -445,6 +444,9 @@ start of fourthpage */
     padding-left: 80px;
     display: flex;
     
+}
+.email{
+    text-decoration: none;
 }
 #pp #icon{
     padding: 7px;

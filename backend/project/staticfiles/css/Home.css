@@ -63,7 +63,7 @@ body {
 
   /* Style for the navbar title */
 #navbar_logo {
-    margin-right: 0; /* Remove default margin */
+    margin-right: 2px; /* Remove default margin */
     font-size: 26px; /* Adjust as needed */
     text-decoration: none;
     color: #31220f;
@@ -153,7 +153,7 @@ background-color: var(--selection--color);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     filter: blur(8px);
-    animation: glowing 40s linear infinite;
+    animation: glowing 10s linear infinite;
     transition: opacity .3s ;
     border-radius: 10px;
     opacity: 0;

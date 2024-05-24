@@ -41,7 +41,7 @@ body {
     font-weight: 550;
     font-size: 28px;
     position: relative;
-    bottom: 6px;
+    bottom: 0px;
 }
 #logo {
     width:90px; /* Adjust as needed */

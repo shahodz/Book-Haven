@@ -26,14 +26,12 @@
 {% include 'footer.html' %}
 
 <script>
-    const search_form = document.getElementById('search_form');
     const search_input = document.getElementById('bar');
     const results = document.getElementById('result');
     const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
 
 
     const searchInputData = (book) => {
-
         $.ajax({
         type: 'POST',
         url: '{% url "results" %}', 
@@ -41,8 +39,8 @@
             'csrfmiddlewaretoken': csrf,
             'book': book
         },
-        success: function(res) {
-            const data = res.data;
+        success: function(result) {
+            const data = result.data;
             if (Array.isArray(data)) {
                 data.forEach(book =>{
                     results.innerHTML +=
@@ -54,20 +52,19 @@
                     <p>${book.description}</p>
                     <br>
                     </div>`
-                })
-                
+                })  
+            }else{
+                results.innerHTML+= data;
             }
         },
-        error: function(response) {
-            console.log(response);
+        error: function(result) {
+            console.log(result);
         }
-});
+        });
 
     }
     search_input.addEventListener('keyup',e=>{
-        
         results.innerHTML="";
-
         searchInputData(e.target.value);
     });
 

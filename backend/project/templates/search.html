@@ -46,7 +46,7 @@
             if (Array.isArray(data)) {
                 data.forEach(book =>{
                     results.innerHTML +=
-                    `<div class=book>
+                    `<div class="book" id="card">
                     <a href="/books/${book.id}/"><img src="${book.image}" width="170" height="240" alt="${book.name}"></a>
                     <br>
                     <h2>${book.name} <small><br>by ${book.author}</small></h2>
@@ -55,6 +55,7 @@
                     <br>
                     </div>`
                 })
+                
             }
         },
         error: function(response) {
@@ -69,6 +70,8 @@
 
         searchInputData(e.target.value);
     });
+
+    
 </script>
 
 

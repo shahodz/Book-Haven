@@ -8,10 +8,10 @@
                 <h3>Book Haven</h3>
                 <ul class="special-list">
                     <li><a href="{% url 'admindashboard' %}">Home</a> </li>
-                    <li><a href="user_books.html">Books</a> </li>
+                    <li><a href="{% url 'view_books' %}">Books</a> </li>
                     <!-- admin books -->
-                    <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
-                    <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
+                    <li><a href="{% url 'admindashboard' %}">About Us</a> </li>
+                    <li><a href="{% url 'admindashboard' %}">Contact Us</a></li>
                 </ul>
             </div>
             <div class=>
@@ -32,10 +32,10 @@
                 <h3>Book Haven</h3>
                 <ul class="special-list">
                     <li><a href="{% url 'userdashboard' %}">Home</a> </li>
-                    <li><a href="user_books.html">Books</a> </li>
+                    <li><a href="{% url 'view_books' %}">Books</a> </li>
                     <!-- user books -->
-                    <li><a href="{% url 'home' %}#AboutUs">About Us</a> </li>
-                    <li><a href="{% url 'home' %}#contactUs">Contact Us</a></li>
+                    <li><a href="{% url 'userdashboard' %}">About Us</a> </li>
+                    <li><a href="{% url 'userdashboard' %}">Contact Us</a></li>
                 </ul>
             </div>
             <div class=>

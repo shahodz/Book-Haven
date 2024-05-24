@@ -239,7 +239,8 @@
                 grid.appendChild(createCategory);
 
                 books.forEach(book => {
-                    if (book.genre === categories[i]) {
+                    if (book.genre.toLowerCase() === categories[i].toLowerCase()) {
+                        console.log(categories[i]);
                         row.appendChild(createbook(book));
                     }
                 });

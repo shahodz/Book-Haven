@@ -35,14 +35,13 @@ body {
 
 /* Start of navbar style */
 .nav_bar {
-    padding: 0px;
+    padding: 10px;
     padding-bottom: 10px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.489);
     display: flex;
     align-items: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    z-index: 2;
 }
 #libraryName{
     color: #31220f;
@@ -63,11 +62,11 @@ body {
 
   /* Style for the navbar title */
 #navbar_logo {
-    margin-right: 2px; /* Remove default margin */
+    margin-right: 0; /* Remove default margin */
     font-size: 26px; /* Adjust as needed */
     text-decoration: none;
     color: #31220f;
-    bottom: 3px;
+
 }
 
   /* Style for the navigation links */
@@ -99,6 +98,7 @@ body {
 .Intro {
     padding-top: 40px;
     justify-content: center;
+    /* margin: 30px; */
     text-align:auto;
     font-size: 30px; 
     padding-left: 50px;
@@ -153,7 +153,7 @@ background-color: var(--selection--color);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     filter: blur(8px);
-    animation: glowing 10s linear infinite;
+    animation: glowing 40s linear infinite;
     transition: opacity .3s ;
     border-radius: 10px;
     opacity: 0;
@@ -184,7 +184,7 @@ color: var(--backG--color);
 .secondpage,
 .fourthpage {
     height: 100dvh;
-    scroll-snap-align:left ;
+    scroll-snap-align:center ;
 }
 .secondpage{
     display: relative;
@@ -293,16 +293,16 @@ color: var(--backG--color);
     margin-right: 0;
     
 }
-/* .thirdpage:hover{
+.thirdpage:hover{
     /* background-color: var(--selection--color);
     .moreBooks{
         background-color: var(--backG--color);
     } */
-    /* .moreBooks:hover{
+    .moreBooks:hover{
         color: var(--backG--color);
         background-color: rgb(29, 97, 84);
-    } 
-} */
+    }
+}
 .book{
     box-shadow: 5px 5px 15px black;
     border-radius: 10px;
@@ -310,16 +310,17 @@ color: var(--backG--color);
     height: 440px;
     overflow: hidden;
     position: relative;
+    background-color: var(--backG--color);
     
 
 }
-.book:hover{
-    background-color: var(--selection--colorn);
-    /* color: var(--backG--color);
+/* .book:hover{
+    background-color: var(--green--btn);
+    color: var(--backG--color);
     #bookTitle{
         color: var(--backG--color);
-    } */
-} 
+    }
+} */
 .book img{
     height: 350px;
     width: 100%
@@ -357,7 +358,7 @@ color: var(--backG--color);
     box-shadow: 1px 1px 15px #31220f;
     border-radius: 10px;
     padding: 5px;
-    background-color: var(--backG--color);
+    background-color: #e4c5a1;
     color: #31220f;
     font-weight: 600;
     font-size: 15px;
@@ -431,6 +432,12 @@ start of fourthpage */
     font-weight: bold;
     
 }
+
+.email{
+    text-decoration: none;
+    color: #31220f;
+}
+
 #title {
     color: #31220f;
     font-size: 26px;
@@ -444,9 +451,6 @@ start of fourthpage */
     padding-left: 80px;
     display: flex;
     
-}
-.email{
-    text-decoration: none;
 }
 #pp #icon{
     padding: 7px;

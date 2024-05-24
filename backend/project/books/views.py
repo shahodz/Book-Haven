@@ -10,37 +10,6 @@ import json
 import datetime
 # Create your views here.
 
-def main_view(request):
-    return render(request,'user_result.html')
-
-def search_results(request):
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        res = None
-        search_key = request.POST.get('book')
-        matching_books = []
-        matching_books += Book.objects.filter(
-            Q(name__icontains=search_key) |
-            Q(genre__icontains=search_key) |
-            Q(author__icontains=search_key)
-        )  
-
-        if len(search_key) > 0 and len(matching_books) > 0:
-            results = []
-            for book in matching_books:
-                item = {
-                    'id':book.id,
-                    'name': book.name,
-                    'image': book.image,
-                    'author': book.author,
-                    'description': book.description,
-                }
-                results.append(item)
-            res = results
-        else:
-            res = "no book found"
-        return JsonResponse({'data': res})
-    return JsonResponse({})
-
 # def view_books(request):
 #     books = Book.objects.all()
 #     categories = ["Historical", "Romance", "Mystery", "Children's Literature", "Self Help", "Science Fiction"]
@@ -48,9 +17,15 @@ def search_results(request):
 
 def view_books(request):
     books = Book.objects.all().values('id', 'name', 'author', 'genre', 'image', 'available')
-    categories = ['Historical', 'Romance', 'Mystery', "Children's Books", 'Self-help', 'Science Fiction']
+    genre_list = []
+    for book in books:
+        genre = book['genre']
+        if genre:  
+            normalized_genre = genre.strip().title()  
+            if normalized_genre not in genre_list: 
+                genre_list.append(normalized_genre)
     books_json = json.dumps(list(books))
-    categories_json = json.dumps(categories)
+    categories_json = json.dumps(genre_list)
     return render(request, 'viewbooks.html', {'books': books_json, 'categories': categories_json})
 
 @login_required # Ensures that only authenticated users can access this view

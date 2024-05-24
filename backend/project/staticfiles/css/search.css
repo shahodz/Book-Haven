@@ -215,6 +215,7 @@ input {
     display: flex;
     position: relative;
     justify-content: space-around;
+    align-items: center;
     bottom: 0;
     width: -webkit-fill-available;
     height: 200px;

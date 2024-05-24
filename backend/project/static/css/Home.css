@@ -98,11 +98,10 @@ body {
 .Intro {
     padding-top: 40px;
     justify-content: center;
-    margin: 30px;
+    /* margin: 30px; */
     text-align:auto;
     font-size: 30px; 
     padding-left: 50px;
-    margin: 30px;
 }
 ::selection{
     background: #e4c5a1;
@@ -311,7 +310,7 @@ color: var(--backG--color);
     height: 440px;
     overflow: hidden;
     position: relative;
-    background-color: var(--selection--color);
+    background-color: var(--backG--color);
     
 
 }
@@ -433,6 +432,12 @@ start of fourthpage */
     font-weight: bold;
     
 }
+
+.email{
+    text-decoration: none;
+    color: #31220f;
+}
+
 #title {
     color: #31220f;
     font-size: 26px;
@@ -466,7 +471,7 @@ start of fourthpage */
     position: relative;
     justify-content:space-around;
     align-items: center;
-    bottom: 25;
+    bottom: 0;
     width: -webkit-fill-available;
     height: 150px;
 }

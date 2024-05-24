@@ -157,7 +157,7 @@ ul.special-list {
 
 }
 .special-list li a:hover{
-    color: var(--selection--color);
+    color: #ccc;
 }
 
 

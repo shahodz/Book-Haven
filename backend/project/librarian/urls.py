@@ -6,5 +6,5 @@ urlpatterns = [
     path('adminprofile/', adminprofile, name='adminprofile'),
     path('save_profile_changes/', save_profile_changes, name='save_profile_changes'),
     path('change_password/', change_password, name='change_password'),
-    path('search/', include('books.urls')),
+    path('search', include('search.urls')),
 ]

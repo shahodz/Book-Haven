@@ -20,6 +20,17 @@ body {
     
 }
 
+.messages li{
+    color:white;
+    background-color: red;
+}
+
+.messages{
+    text-align: center;
+}
+
+
+
 /* Removing the scroll bar without impacting scrolling */
 *::-webkit-scrollbar{
     display: none;

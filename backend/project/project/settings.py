@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'Home.apps.HomeConfig',
     'add_books',
     'edit_books',
+    'search',
 ]
 
 MIDDLEWARE = [

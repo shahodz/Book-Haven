@@ -4,7 +4,7 @@
         <div>
             <header class="nav_bar">
                 <a href="{% url 'admindashboard' %}" id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo"></a>
-                {% comment %} <a href="{% url 'admindashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a> {% endcomment %}
+                <a href="{% url 'admindashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a>
                 <nav class="nav_menu">
                 <a href="{% url 'admindashboard' %}"    class="nav_links">Home</a>
                 <a href="{% url 'view_books' %}"        class="nav_links">Books</a>  
@@ -18,7 +18,7 @@
     {%else%}
         <header class="nav_bar">
             <a href="{% url 'userdashboard' %}"         id="navbar_logo"> <img src="{% static 'images/Sticker png.png' %}" id="logo" ></a>
-            {% comment %} <a href="{% url 'userdashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a> {% endcomment %}
+            <a href="{% url 'userdashboard' %}" id="libraryName"><span id="libraryName"> Book Haven</span></a> 
             <nav class="nav_menu">
                 <a href="{% url 'userdashboard' %}"     class="nav_links">Home</a> 
                 <a href="{% url 'view_books' %}"        class="nav_links">Books</a>
